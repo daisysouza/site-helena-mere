@@ -1,0 +1,30 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "sections": [
+        "hero",
+        "search",
+        "featured-properties",
+        "about",
+        "testimonials",
+        "cta"
+      ]
+    },
+    {
+      "path": "/imoveis"
+    },
+    {
+      "path": "/imoveis/[slug]"
+    },
+    {
+      "path": "/sobre"
+    },
+    {
+      "path": "/anuncie-seu-imovel"
+    },
+    {
+      "path": "/contato"
+    }
+  ]
+}

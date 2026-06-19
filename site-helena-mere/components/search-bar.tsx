@@ -1,0 +1,128 @@
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { Search } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { cities, propertyTypes } from '@/lib/properties'
+
+const priceRanges = [
+  { label: 'Até R$ 700 mil', value: '0-700000' },
+  { label: 'R$ 700 mil a R$ 1 mi', value: '700000-1000000' },
+  { label: 'R$ 1 mi a R$ 1,5 mi', value: '1000000-1500000' },
+  { label: 'Acima de R$ 1,5 mi', value: '1500000-99999999' },
+]
+
+const bedroomOptions = ['1', '2', '3', '4']
+
+export function SearchBar() {
+  const router = useRouter()
+  const [type, setType] = useState('')
+  const [city, setCity] = useState('')
+  const [price, setPrice] = useState('')
+  const [bedrooms, setBedrooms] = useState('')
+
+  function handleSearch() {
+    const params = new URLSearchParams()
+    if (type) params.set('type', type)
+    if (city) params.set('city', city)
+    if (price) params.set('price', price)
+    if (bedrooms) params.set('bedrooms', bedrooms)
+    router.push(`/imoveis?${params.toString()}`)
+  }
+
+  return (
+    <div className="rounded-2xl border border-border bg-card p-5 shadow-xl md:p-6">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-col gap-1.5">
+          <Label className="text-xs font-medium text-muted-foreground">
+            Tipo de imóvel
+          </Label>
+          <Select value={type} onValueChange={setType}>
+            <SelectTrigger className="rounded-xl">
+              <SelectValue placeholder="Todos" />
+            </SelectTrigger>
+            <SelectContent>
+              {propertyTypes.map((t) => (
+                <SelectItem key={t} value={t}>
+                  {t}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex flex-col gap-1.5">
+          <Label className="text-xs font-medium text-muted-foreground">
+            Cidade
+          </Label>
+          <Select value={city} onValueChange={setCity}>
+            <SelectTrigger className="rounded-xl">
+              <SelectValue placeholder="Todas" />
+            </SelectTrigger>
+            <SelectContent>
+              {cities.map((c) => (
+                <SelectItem key={c} value={c}>
+                  {c}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex flex-col gap-1.5">
+          <Label className="text-xs font-medium text-muted-foreground">
+            Faixa de preço
+          </Label>
+          <Select value={price} onValueChange={setPrice}>
+            <SelectTrigger className="rounded-xl">
+              <SelectValue placeholder="Qualquer" />
+            </SelectTrigger>
+            <SelectContent>
+              {priceRanges.map((r) => (
+                <SelectItem key={r.value} value={r.value}>
+                  {r.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex flex-col gap-1.5">
+          <Label className="text-xs font-medium text-muted-foreground">
+            Quartos
+          </Label>
+          <Select value={bedrooms} onValueChange={setBedrooms}>
+            <SelectTrigger className="rounded-xl">
+              <SelectValue placeholder="Qualquer" />
+            </SelectTrigger>
+            <SelectContent>
+              {bedroomOptions.map((b) => (
+                <SelectItem key={b} value={b}>
+                  {b}+ quartos
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <Button
+        onClick={handleSearch}
+        size="lg"
+        className="mt-4 w-full rounded-xl text-base"
+      >
+        <Search className="size-5" />
+        Buscar imóveis
+      </Button>
+    </div>
+  )
+}
