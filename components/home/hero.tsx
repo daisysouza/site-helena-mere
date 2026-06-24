@@ -9,7 +9,7 @@ import { siteConfig, whatsappLink } from '@/lib/site'
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="relative min-h-[88vh] w-full">
+      <div className="relative flex min-h-[90vh] w-full flex-col md:min-h-screen">
         <Image
           src="/images/hero-home.png"
           alt="Casa de alto padrão ao entardecer"
@@ -20,7 +20,7 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/20" />
 
-        <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-center px-4 py-20 md:px-6">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 pb-4 pt-20 md:px-6">
           <span className="mb-5 inline-flex w-fit items-center rounded-full bg-background/15 px-4 py-1.5 text-sm font-medium text-background backdrop-blur-sm ring-1 ring-background/30">
             Imóveis em Contagem, Cabral e Belo Horizonte
           </span>
@@ -58,10 +58,10 @@ export function Hero() {
             </Button>
           </div>
         </div>
-      </div>
 
-      <div className="mx-auto -mt-16 max-w-5xl px-4 pb-4 md:px-6">
-        <SearchBar />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-6 md:px-6">
+          <SearchBar />
+        </div>
       </div>
     </section>
   )
