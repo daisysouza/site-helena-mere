@@ -30,6 +30,7 @@ export function CtaSection({
             href={whatsappLink(message)}
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex items-center gap-2"
           >
             <WhatsappIcon className="size-5" />
             Falar no WhatsApp

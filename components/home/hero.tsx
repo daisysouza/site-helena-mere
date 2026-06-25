@@ -28,8 +28,7 @@ export function Hero() {
             O lugar certo para viver começa com a escolha certa.
           </h1>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-background/85">
-            Atendimento boutique e cuidadoso para encontrar o imóvel que combina
-            com a sua história. Vamos juntos nessa jornada?
+            Transformando vidas através de negócios imobiliários Vamos juntos nessa jornada?
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -51,6 +50,7 @@ export function Hero() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
               >
                 <WhatsappIcon className="size-5" />
                 Falar no WhatsApp

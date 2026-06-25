@@ -123,7 +123,7 @@ export function ListPropertyForm() {
         </div>
       </div>
 
-      <Button type="submit" size="lg" className="mt-6 w-full rounded-xl text-base">
+      <Button type="submit" size="lg" className="mt-6 w-full gap-2 rounded-xl text-base">
         <WhatsappIcon className="size-5" />
         Enviar pelo WhatsApp
       </Button>

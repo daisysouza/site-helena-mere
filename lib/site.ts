@@ -3,8 +3,8 @@ export const siteConfig = {
   role: 'Corretora de Imóveis',
   creci: 'CRECI-MG 00000',
   // Número no formato internacional, somente dígitos
-  whatsappNumber: '5531999999999',
-  whatsappDisplay: '(31) 99999-9999',
+  whatsappNumber: '5531988324257',
+  whatsappDisplay: '(31) 98832-4257',
   email: 'contato@helenamere.com.br',
   instagram: 'helenamere.corretora',
   instagramUrl: 'https://instagram.com/helenamere.corretora',
@@ -13,9 +13,9 @@ export const siteConfig = {
 }
 
 export function whatsappLink(message?: string) {
-  const base = `https://wa.me/${siteConfig.whatsappNumber}`
+  const base = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}`
   if (!message) return base
-  return `${base}?text=${encodeURIComponent(message)}`
+  return `${base}&text=${encodeURIComponent(message)}`
 }
 
 export const navLinks = [

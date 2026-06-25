@@ -6,7 +6,7 @@ import { CtaSection } from '@/components/cta-section'
 export const metadata: Metadata = {
   title: 'Sobre Helena Mêre',
   description:
-    'Conheça a história da Helena Mêre, corretora de imóveis com atendimento boutique em Contagem, Cabral e Belo Horizonte.',
+    'Conheça a história da Helena Mêre, corretora de imóveis com atendimento personalizado em Contagem, Cabral e Belo Horizonte.',
 }
 
 const values = [
@@ -48,19 +48,36 @@ export default function SobrePage() {
             <h1 className="mt-3 text-balance font-serif text-4xl font-semibold leading-tight md:text-5xl">
               Prazer, sou a Helena Mêre
             </h1>
-            <p className="mt-6 leading-relaxed text-muted-foreground">
-              Há mais de uma década ajudo famílias e investidores a encontrarem
-              o lugar certo para viver e crescer. Minha trajetória nasceu de uma
-              certeza simples: comprar ou vender um imóvel é um dos momentos mais
-              importantes da vida, e merece um acompanhamento humano, atento e de
-              confiança.
+
+            <p className="leading-relaxed text-muted-foreground">
+              Minha trajetória no mercado imobiliário é guiada pelo propósito de{" "}
+              <strong>transformar vidas por meio de negócios que geram segurança, crescimento e novas possibilidades</strong>.
             </p>
+
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Especializada nas regiões de Contagem, Cabral e Belo Horizonte,
-              ofereço um atendimento boutique: poucos clientes por vez, muita
-              dedicação e total transparência. Mais do que fechar negócios, meu
-              propósito é abrir portas para novas histórias.
+              Acredito que <strong>comprar ou vender um imóvel está entre as decisões mais importantes da vida</strong>.
+              Por isso, cada negociação deve ser conduzida com{" "}
+              <strong>cuidado, estratégia e confiança</strong>.
             </p>
+
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Sou <strong>Técnica em Transações Imobiliárias</strong>, certificada pelo{" "}
+              <strong>Sindimóveis/MG</strong>, com especialização em{" "}
+              <strong>Direito Imobiliário</strong>, unindo atendimento humanizado e
+              segurança técnica em cada etapa.
+            </p>
+
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Especializada em <strong>Contagem, especialmente bairro Cabral e Belo Horizonte</strong>,
+              ofereço um atendimento <strong>próximo, transparente e personalizado</strong>.
+            </p>
+
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Mais do que concretizar negócios, meu propósito é{" "}
+              <strong>abrir portas para novas conquistas</strong>.
+            </p>
+
+
           </div>
 
           <div className="relative">
@@ -112,7 +129,7 @@ export default function SobrePage() {
               Minha visão
             </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Ser referência em atendimento boutique no mercado imobiliário de
+              Ser referência em atendimento personalizado no mercado imobiliário de
               Minas Gerais, reconhecida pela proximidade com os clientes e pela
               qualidade das experiências que proporciono.
             </p>

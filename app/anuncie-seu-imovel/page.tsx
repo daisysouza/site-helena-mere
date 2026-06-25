@@ -53,7 +53,7 @@ export default function AnunciePage() {
               Por que anunciar comigo?
             </h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">
-              Um atendimento boutique faz toda a diferença na hora de vender. Cada
+              Um atendimento personalizado faz toda a diferença na hora de vender. Cada
               imóvel recebe atenção individual e uma estratégia pensada para o seu
               perfil.
             </p>

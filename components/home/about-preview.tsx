@@ -23,12 +23,6 @@ export function AboutPreview() {
               className="object-cover"
             />
           </div>
-          <div className="absolute -bottom-6 -right-2 rounded-2xl bg-primary px-6 py-5 text-primary-foreground shadow-lg md:-right-6">
-            <p className="font-serif text-3xl font-semibold">+10 anos</p>
-            <p className="text-sm text-primary-foreground/80">
-              realizando sonhos
-            </p>
-          </div>
         </div>
 
         <div className="order-1 md:order-2">
@@ -41,7 +35,7 @@ export function AboutPreview() {
           <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
             Acredito que cada imóvel carrega uma história e que encontrar o lar
             certo é uma decisão que vai muito além de metros quadrados. Por isso,
-            ofereço um atendimento boutique, atento aos detalhes e às suas
+            ofereço um atendimento personalizado, atento aos detalhes e às suas
             necessidades, do primeiro contato até a entrega das chaves.
           </p>
 
