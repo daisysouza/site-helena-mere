@@ -1,55 +1,95 @@
-# Helena Mêre Corretora — Site Institucional
+# 🏢 Site-Plataforma Institucional Helena Mêre
 
-Site institucional para corretora de imóveis, com vitrine de imóveis, páginas institucionais e integração direta com WhatsApp.
-
-## Tech Stack
-
-- **Next.js 16** (App Router) — renderização híbrida (SSG + ISR)
-- **TypeScript** — tipagem estática
-- **Tailwind CSS v4** — estilização utilitária com design system próprio
-- **shadcn/ui** — componentes headless acessíveis (Button, Input, Select, etc.)
-- **Embla Carousel** — carrossel performático de depoimentos
-
-## Arquitetura
-
-```
-app/                  # App Router (7 rotas)
-  page.tsx            # Home: hero, imóveis em destaque, depoimentos, CTA
-  imoveis/
-    page.tsx          # Listagem com filtros (tipo, preço, bairro, quartos)
-    [slug]/page.tsx   # Detalhe do imóvel com galeria e especificações
-  sobre/page.tsx      # Página institucional
-  contato/page.tsx    # Canais de contato + formulário + mapa
-  anuncie-seu-imovel/ # Formulário para vendedores
-components/
-  ui/                 # Componentes base (shadcn/ui)
-  home/               # Seções da página inicial
-  header.tsx          # Navbar responsiva com menu mobile
-  footer.tsx          # Footer 4 colunas
-  contact-form.tsx    # Formulário → WhatsApp
-  list-property-form.tsx # Formulário → WhatsApp
-  property-card.tsx   # Card reutilizável
-  whatsapp-float.tsx  # Botão flutuante
-lib/
-  site.ts            # Config centralizada (contato, redes, links)
-  properties.ts      # Dados e utilitários dos imóveis
-```
-
-## Funcionalidades
-
-- **Vitrine de imóveis** com filtros combinados e ordenação
-- **Páginas estáticas** geradas em build (SSG) com revalidação incremental (ISR)
-- **Formulários** que enviam mensagem pronta para o WhatsApp
-- **Galeria de fotos** com miniaturas selecionáveis
-- **SEO completo** — Open Graph, Twitter Cards, metadados por página
-- **Tema claro/escuro** via `next-themes`
-- **Design responsivo** — mobile-first com breakpoints Tailwind
-- **Botão flutuante do WhatsApp** com animação pulse
-
-## Deploy
-
-**Vercel** via GitHub Actions (push na `main` dispara build e deploy automático).
+<div align="center">
+  <img src="https://shields.io" alt="Website Status">
+  <img src="https://shields.io" alt="Licença">
+</div>
 
 ---
 
-Desenvolvido com foco em performance, acessibilidade e experiência mobile.
+### 🌐 [Acesse a aplicação em produção](https://site-helena-mere.vercel.app/)
+
+Plataforma institucional de alta performance desenvolvida para **Helena Mêre**, projetada para fortalecer sua presença digital, apresentar imóveis de forma estratégica e otimizar a geração de leads por meio de conversão direta via WhatsApp.
+
+---
+
+## ⚡ Performance & Core Web Vitals
+
+Desenvolvido com forte foco em **performance** e **eficiência de renderização**, utilizando **geração estática com Next.js**, **assets otimizados**, **imagens responsivas** e o **mínimo de JavaScript no client-side**.
+
+<div align="center">
+  <img src="https://shields.io" alt="FCP">
+  <img src="https://shields.io" alt="LCP">
+  <img src="https://shields.io" alt="CLS">
+</div>
+
+- **Carregamento abaixo de 1 segundo** em conexões padrão.
+- **Layout estável (CLS zero)**, eliminando deslocamentos perceptíveis de tela.
+- **SEO & UX integrados**, unindo engenharia frontend com foco em conversão comercial.
+
+---
+
+## 🚀 Principais Destaques
+
+- **Vitrine Dinâmica:** Filtros inteligentes por tipo, preço, localização e dormitórios.
+- **Foco em Lead Gen:** CTAs estratégicos para WhatsApp e formulários otimizados.
+- **Páginas Estáticas (SSG/ISR):** Detalhes dos imóveis carregam instantaneamente.
+- **SEO Avançado:** Estrutura completa de metadados, Open Graph e JSON-LD.
+- **Mobile-First:** Experiência de navegação fluida em smartphones e tablets.
+- **Dark Mode:** Suporte nativo a tema claro/escuro via Tailwind.
+
+---
+
+## 🛠️ Stack Tecnológica
+
+<div align="center">
+  <img src="https://shields.io" alt="Next.js">
+  <img src="https://shields.io" alt="TypeScript">
+  <img src="https://shields.io" alt="Tailwind CSS">
+  <img src="https://shields.io" alt="shadcn/ui">
+  <img src="https://shields.io" alt="Vercel">
+</div>
+
+- **Next.js (App Router):** Arquitetura moderna utilizando Server Components e revalidação incremental (ISR).
+- **TypeScript:** Tipagem estática rigorosa para maior manutenibilidade.
+- **Tailwind CSS v4:** Estilização baseada em tokens com altíssimo desempenho de compilação.
+- **shadcn/ui & Embla:** Componentes totalmente acessíveis (Radix UI) e carrosséis leves de toque.
+
+---
+
+## 📐 Arquitetura do Projeto
+
+Estrutura limpa e orientada a componentes, separando responsabilidades e facilitando a escalabilidade:
+
+```bash
+app/            # Roteamento baseado em arquivos (App Router) e páginas
+components/     # Componentes atômicos de interface e blocos de negócio
+lib/            # Configurações globais, clientes de API e utilitários
+```
+
+### Componentes Chave:
+
+- 📱 Navegação responsiva com estados híbridos.
+- 🏠 Cards de imóveis otimizados com `next/image`.
+- ✉️ Formulários de captação blindados contra submissões duplicadas.
+- 💬 Botão flutuante integrado à API do WhatsApp.
+
+---
+
+## ⚙️ Foco de Engenharia
+
+- **Otimização de Performance:** Divisão de código automática e eliminação de CSS não utilizado.
+- **Arquitetura Limpa:** Código desacoplado e funções utilitárias puras.
+- **Acessibilidade:** Tags semânticas e conformidade inicial com padrões WCAG.
+
+---
+
+## 📦 Deploy & CI/CD
+
+O deploy é gerenciado de forma automatizada na plataforma **Vercel** através de pipelines de integração contínua vinculados ao repositório do **GitHub**, disparados a cada nova atualização na branch principal.
+
+## 📸 Preview do Projeto
+
+<div align="center">
+  <img src="https://public/images/preview.png" alt="Preview da Plataforma Helena Mêre" width="800px" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+</div>

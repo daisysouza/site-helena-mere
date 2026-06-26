@@ -65,22 +65,22 @@ export default function ContatoPage() {
                   href={c.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md"
+                  className="flex items-center gap-2 rounded-2xl border border-border bg-card p-4 transition-shadow hover:shadow-md md:gap-3 md:p-5"
                 >
-                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent/40 text-primary">
-                    <c.icon className="size-5" />
+                  <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-accent/40 text-primary md:size-10">
+                    <c.icon className="size-4 md:size-5" />
                   </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">{c.label}</p>
-                    <p className="font-medium text-foreground">{c.value}</p>
+                  <div className="min-w-0">
+                    <p className="text-xs text-muted-foreground md:text-sm">{c.label}</p>
+                    <p className="truncate text-sm font-medium text-foreground md:text-base" title={c.value}>{c.value}</p>
                   </div>
                 </a>
               ))}
             </div>
 
-            <div className="mt-6 flex items-start gap-4 rounded-2xl bg-primary p-6 text-primary-foreground">
+            <div className="mt-6 flex items-start gap-3 rounded-2xl bg-primary p-5 text-primary-foreground md:gap-4 md:p-6">
               <MapPin className="mt-0.5 size-5 shrink-0" />
-              <div>
+              <div className="min-w-0">
                 <p className="font-serif text-lg">Atendimento</p>
                 <p className="mt-1 text-sm text-primary-foreground/85">
                   {siteConfig.address}

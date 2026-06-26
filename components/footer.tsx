@@ -42,12 +42,12 @@ export function Footer() {
           <ul className="mt-4 flex flex-col gap-3 text-sm text-background/70">
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
-              <span>{siteConfig.address}</span>
+              <span className="break-words">{siteConfig.address}</span>
             </li>
             <li>
               <a
                 href={`tel:+${siteConfig.whatsappNumber}`}
-                className="flex items-center gap-3 transition-colors hover:text-accent"
+                className="inline-flex items-center gap-3 transition-colors hover:text-accent"
               >
                 <Phone className="size-4 shrink-0 text-accent" />
                 {siteConfig.whatsappDisplay}
@@ -56,10 +56,10 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-3 transition-colors hover:text-accent"
+                className="inline-flex items-center gap-3 transition-colors hover:text-accent"
               >
                 <Mail className="size-4 shrink-0 text-accent" />
-                {siteConfig.email}
+                <span className="break-words">{siteConfig.email}</span>
               </a>
             </li>
           </ul>

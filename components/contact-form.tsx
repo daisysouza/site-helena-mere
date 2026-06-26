@@ -28,9 +28,9 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8"
+      className="rounded-2xl border border-border bg-card p-8 shadow-sm"
     >
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="c-name" className="text-sm font-medium">
             Nome completo
@@ -41,7 +41,7 @@ export function ContactForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Seu nome"
-            className="rounded-xl"
+            className="rounded-xl h-10 px-3"
           />
         </div>
 
@@ -56,7 +56,7 @@ export function ContactForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="(31) 90000-0000"
-            className="rounded-xl"
+            className="rounded-xl h-10 px-3"
           />
         </div>
 
@@ -71,12 +71,12 @@ export function ContactForm() {
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Como posso te ajudar?"
             rows={5}
-            className="rounded-xl"
+            className="rounded-xl px-3 py-3"
           />
         </div>
       </div>
 
-      <Button type="submit" size="lg" className="mt-6 w-full gap-2 rounded-xl text-base">
+      <Button type="submit" size="lg" className="mt-8 w-full gap-2 rounded-xl text-base">
         <WhatsappIcon className="size-5" />
         Enviar mensagem
       </Button>

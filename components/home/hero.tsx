@@ -22,13 +22,13 @@ export function Hero() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 pb-4 pt-20 md:px-6">
           <span className="mb-5 inline-flex w-fit items-center rounded-full bg-background/15 px-4 py-1.5 text-sm font-medium text-background backdrop-blur-sm ring-1 ring-background/30">
-            Imóveis em Contagem, Cabral e Belo Horizonte
+            Imóveis em Contagem (especialmente bairro Cabral) e Belo Horizonte
           </span>
           <h1 className="max-w-3xl text-balance font-serif text-4xl font-semibold leading-tight text-background md:text-5xl lg:text-6xl">
             O lugar certo para viver começa com a escolha certa.
           </h1>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-background/85">
-            Transformando vidas através de negócios imobiliários Vamos juntos nessa jornada?
+            Transformando vidas através de negócios imobiliários. Vamos juntos nessa jornada?
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

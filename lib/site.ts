@@ -6,8 +6,8 @@ export const siteConfig = {
   whatsappNumber: '5531988324257',
   whatsappDisplay: '(31) 98832-4257',
   email: 'contato@helenamere.com.br',
-  instagram: 'helenamere.corretora',
-  instagramUrl: 'https://instagram.com/helenamere.corretora',
+  instagram: 'helenamerecorretora',
+  instagramUrl: 'https://instagram.com/helenamerecorretora',
   address: 'Av. João César de Oliveira, Eldorado, Contagem - MG',
   regions: ['Contagem', 'Cabral', 'Belo Horizonte'],
 }

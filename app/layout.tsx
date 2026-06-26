@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: '%s | Helena Mêre Corretora',
   },
   description:
-    'Encontre o lugar certo para viver com a Helena Mêre. Atendimento boutique e personalizado para venda e compra de imóveis em Contagem, Cabral e Belo Horizonte.',
+    'Encontre o lugar certo para viver com a Helena Mêre. Atendimento e personalizado para venda e compra de imóveis em Contagem, especialmente bairro Cabral e Belo Horizonte.',
   keywords: [
     'imóveis',
     'corretora',
