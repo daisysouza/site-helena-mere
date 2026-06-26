@@ -1,13 +1,8 @@
 # 🏢 Site-Plataforma Institucional Helena Mêre
 
-<div align="center">
-  <img src="https://shields.io" alt="Website Status">
-  <img src="https://shields.io" alt="Licença">
-</div>
+### 🌐 Acesse a aplicação em produção
 
----
-
-### 🌐 [Acesse a aplicação em produção](https://site-helena-mere.vercel.app/)
+🔗[Link da aplicação] (https://site-helena-mere.vercel.app/)🔗
 
 Plataforma institucional de alta performance desenvolvida para **Helena Mêre**, projetada para fortalecer sua presença digital, apresentar imóveis de forma estratégica e otimizar a geração de leads por meio de conversão direta via WhatsApp.
 
@@ -16,12 +11,6 @@ Plataforma institucional de alta performance desenvolvida para **Helena Mêre**,
 ## ⚡ Performance & Core Web Vitals
 
 Desenvolvido com forte foco em **performance** e **eficiência de renderização**, utilizando **geração estática com Next.js**, **assets otimizados**, **imagens responsivas** e o **mínimo de JavaScript no client-side**.
-
-<div align="center">
-  <img src="https://shields.io" alt="FCP">
-  <img src="https://shields.io" alt="LCP">
-  <img src="https://shields.io" alt="CLS">
-</div>
 
 - **Carregamento abaixo de 1 segundo** em conexões padrão.
 - **Layout estável (CLS zero)**, eliminando deslocamentos perceptíveis de tela.
@@ -41,14 +30,6 @@ Desenvolvido com forte foco em **performance** e **eficiência de renderização
 ---
 
 ## 🛠️ Stack Tecnológica
-
-<div align="center">
-  <img src="https://shields.io" alt="Next.js">
-  <img src="https://shields.io" alt="TypeScript">
-  <img src="https://shields.io" alt="Tailwind CSS">
-  <img src="https://shields.io" alt="shadcn/ui">
-  <img src="https://shields.io" alt="Vercel">
-</div>
 
 - **Next.js (App Router):** Arquitetura moderna utilizando Server Components e revalidação incremental (ISR).
 - **TypeScript:** Tipagem estática rigorosa para maior manutenibilidade.
@@ -87,9 +68,3 @@ lib/            # Configurações globais, clientes de API e utilitários
 ## 📦 Deploy & CI/CD
 
 O deploy é gerenciado de forma automatizada na plataforma **Vercel** através de pipelines de integração contínua vinculados ao repositório do **GitHub**, disparados a cada nova atualização na branch principal.
-
-## 📸 Preview do Projeto
-
-<div align="center">
-  <img src="https://public/images/preview.png" alt="Preview da Plataforma Helena Mêre" width="800px" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-</div>

@@ -40,9 +40,9 @@ export function SearchBar() {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 shadow-xl md:p-6">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <div className="flex flex-col gap-1.5">
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-xl md:p-6">
+      <div className="mx-auto grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+        <div className="flex flex-col gap-1 text-center">
           <Label className="text-xs font-medium text-muted-foreground">
             Tipo de imóvel
           </Label>
@@ -60,7 +60,7 @@ export function SearchBar() {
           </Select>
         </div>
 
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-1 text-center">
           <Label className="text-xs font-medium text-muted-foreground">
             Cidade
           </Label>
@@ -78,7 +78,7 @@ export function SearchBar() {
           </Select>
         </div>
 
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-1 text-center">
           <Label className="text-xs font-medium text-muted-foreground">
             Faixa de preço
           </Label>
@@ -96,7 +96,7 @@ export function SearchBar() {
           </Select>
         </div>
 
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-1 text-center">
           <Label className="text-xs font-medium text-muted-foreground">
             Quartos
           </Label>
@@ -118,7 +118,7 @@ export function SearchBar() {
       <Button
         onClick={handleSearch}
         size="lg"
-        className="mt-4 w-full rounded-xl text-base"
+        className="mt-3 w-full rounded-xl text-base md:mt-4"
       >
         <Search className="size-5" />
         Buscar imóveis
