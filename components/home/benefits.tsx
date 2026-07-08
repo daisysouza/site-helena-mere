@@ -11,7 +11,7 @@ const benefits = [
     icon: MapPinned,
     title: 'Especialista na região',
     description:
-      'Conheço a fundo os bairros de Contagem, Cabral e BH para indicar o lugar ideal para você.',
+      'Conheço a fundo várias oportunidades em BH, Contagem e região para indicar o lugar ideal para você.',
   },
   {
     icon: ShieldCheck,

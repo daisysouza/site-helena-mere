@@ -6,27 +6,21 @@ import { navLinks, siteConfig, whatsappLink } from '@/lib/site'
 
 export function Footer() {
   return (
-    <footer className="bg-card text-card-foreground">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6 lg:grid-cols-4">
-        <div className="lg:col-span-1">
+    <footer className="bg-background text-foreground">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-12 text-center md:grid-cols-2 md:text-left md:px-6 lg:grid-cols-4">
+        <div className="flex flex-col items-center md:items-start lg:col-span-1">
           <Image
             src="/images/logohelenamere.png"
             alt="Helena Mêre Corretora"
             width={180}
             height={54}
-            className="h-14 w-auto"
+            className="h-20 w-auto md:h-24"
           />
-          <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            Corretora de Imóveis
-          </p>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Atendimento personalizado para encontrar o lugar certo para você.
-          </p>
+
         </div>
 
-        <div>
-          <h3 className="font-serif text-lg">Navegação</h3>
-          <ul className="mt-4 flex flex-col gap-3">
+        <div className="flex flex-col items-center md:items-start">
+          <ul className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -40,15 +34,14 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h3 className="font-serif text-lg">Contato</h3>
-          <ul className="mt-4 flex flex-col gap-3 text-sm text-muted-foreground">
+        <div className="flex flex-col items-center md:items-start">
+          <ul className="flex flex-col items-center gap-2 text-sm text-muted-foreground md:items-start">
             <li>
               <a
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 transition-colors hover:text-primary"
+                className="inline-flex items-center gap-2 transition-colors hover:text-primary"
               >
                 <InstagramIcon className="size-4 shrink-0 text-primary" />
                 @{siteConfig.instagram}
@@ -57,7 +50,7 @@ export function Footer() {
             <li>
               <a
                 href={`tel:+${siteConfig.whatsappNumber}`}
-                className="inline-flex items-center gap-3 transition-colors hover:text-primary"
+                className="inline-flex items-center gap-2 transition-colors hover:text-primary"
               >
                 <Phone className="size-4 shrink-0 text-primary" />
                 {siteConfig.whatsappDisplay}
@@ -66,7 +59,7 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-3 transition-colors hover:text-primary"
+                className="inline-flex items-center gap-2 transition-colors hover:text-primary"
               >
                 <Mail className="size-4 shrink-0 text-primary" />
                 <span className="break-words">{siteConfig.email}</span>
@@ -75,19 +68,16 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h3 className="font-serif text-lg">Fale comigo</h3>
-          <div className="mt-4 flex flex-col gap-3">
-            <a
-              href={whatsappLink(`Olá ${siteConfig.name}!`)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              <WhatsappIcon className="size-4" />
-              WhatsApp
-            </a>
-          </div>
+        <div className="flex flex-col items-center md:items-start">
+          <a
+            href={whatsappLink(`Olá ${siteConfig.name}!`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            <WhatsappIcon className="size-4" />
+            WhatsApp
+          </a>
         </div>
       </div>
 
