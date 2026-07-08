@@ -35,20 +35,20 @@ export function Header() {
           : 'bg-transparent',
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6">
         <Link href="/" className="flex items-center gap-3 leading-none">
           <Image
             src="/images/logohelenamere.png"
             alt="Helena Mêre Corretora"
             width={120}
             height={36}
-            className="h-12 w-auto md:h-14"
+            className="h-14 w-auto md:h-14"
           />
           <div className="flex flex-col">
-            <span className="font-serif text-lg font-semibold tracking-tight text-foreground md:text-xl">
+            <span className="font-serif text-xl font-semibold tracking-tight text-foreground md:text-xl">
               Helena Mêre
             </span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-primary md:text-[11px]">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary md:text-[11px]">
               Corretora de Imóveis
             </span>
           </div>

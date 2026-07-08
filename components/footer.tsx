@@ -1,24 +1,27 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import { WhatsappIcon, InstagramIcon } from '@/components/icons'
 import { navLinks, siteConfig, whatsappLink } from '@/lib/site'
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-card text-card-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6 lg:grid-cols-4">
         <div className="lg:col-span-1">
-          <span className="font-serif text-2xl font-semibold">
-            Helena Mêre
-          </span>
-          <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-accent">
+          <Image
+            src="/images/logohelenamere.png"
+            alt="Helena Mêre Corretora"
+            width={180}
+            height={54}
+            className="h-14 w-auto"
+          />
+          <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-primary">
             Corretora de Imóveis
           </p>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-background/70">
-            Atendimento boutique e personalizado para encontrar o lugar certo
-            para você viver em Contagem, Cabral e Belo Horizonte.
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            Atendimento personalizado para encontrar o lugar certo para você.
           </p>
-          <p className="mt-4 text-xs text-background/50">{siteConfig.creci}</p>
         </div>
 
         <div>
@@ -28,7 +31,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-background/70 transition-colors hover:text-accent"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
@@ -39,26 +42,33 @@ export function Footer() {
 
         <div>
           <h3 className="font-serif text-lg">Contato</h3>
-          <ul className="mt-4 flex flex-col gap-3 text-sm text-background/70">
-            <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
-              <span className="break-words">{siteConfig.address}</span>
+          <ul className="mt-4 flex flex-col gap-3 text-sm text-muted-foreground">
+            <li>
+              <a
+                href={siteConfig.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 transition-colors hover:text-primary"
+              >
+                <InstagramIcon className="size-4 shrink-0 text-primary" />
+                @{siteConfig.instagram}
+              </a>
             </li>
             <li>
               <a
                 href={`tel:+${siteConfig.whatsappNumber}`}
-                className="inline-flex items-center gap-3 transition-colors hover:text-accent"
+                className="inline-flex items-center gap-3 transition-colors hover:text-primary"
               >
-                <Phone className="size-4 shrink-0 text-accent" />
+                <Phone className="size-4 shrink-0 text-primary" />
                 {siteConfig.whatsappDisplay}
               </a>
             </li>
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-3 transition-colors hover:text-accent"
+                className="inline-flex items-center gap-3 transition-colors hover:text-primary"
               >
-                <Mail className="size-4 shrink-0 text-accent" />
+                <Mail className="size-4 shrink-0 text-primary" />
                 <span className="break-words">{siteConfig.email}</span>
               </a>
             </li>
@@ -77,21 +87,12 @@ export function Footer() {
               <WhatsappIcon className="size-4" />
               WhatsApp
             </a>
-            <a
-              href={siteConfig.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-sm text-background/70 transition-colors hover:text-accent"
-            >
-              <InstagramIcon className="size-4 text-accent" />@
-              {siteConfig.instagram}
-            </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-background/10">
-        <div className="mx-auto max-w-7xl px-4 py-6 text-center text-xs text-background/50 md:px-6">
+      <div className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 py-6 text-center text-xs text-muted-foreground md:px-6">
           © {new Date().getFullYear()} Helena Mêre Corretora. Todos os direitos
           reservados.
         </div>
