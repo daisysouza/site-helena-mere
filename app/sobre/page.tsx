@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Award, Heart, Home, Target, Users } from 'lucide-react'
+import { Award, Heart, Target } from 'lucide-react'
 import { CtaSection } from '@/components/cta-section'
 
 export const metadata: Metadata = {
@@ -30,10 +30,19 @@ const values = [
   },
 ]
 
-const stats = [
-  { icon: Home, value: '500+', label: 'Imóveis negociados' },
-  { icon: Users, value: '450+', label: 'Famílias atendidas' },
-  { icon: Award, value: '10+', label: 'Anos de experiência' },
+const credentials = [
+  {
+    icon: Award,
+    text: 'Técnica em Transações Imobiliárias certificada pelo Sindimóveis/MG',
+  },
+  {
+    icon: Award,
+    text: 'Especialização em Direito Imobiliário',
+  },
+  {
+    icon: Heart,
+    text: 'Atendimento humanizado e segurança técnica',
+  },
 ]
 
 export default function SobrePage() {
@@ -45,11 +54,11 @@ export default function SobrePage() {
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
               Sobre mim
             </span>
-            <h1 className="mt-3 text-balance font-serif text-4xl font-semibold leading-tight md:text-5xl">
+            <h1 className="mt-3 text-balance font-serif text-3xl font-semibold leading-tight md:text-4xl">
               Prazer, sou a Helena Mêre
             </h1>
 
-            <p className="leading-relaxed text-muted-foreground">
+            <p className="mt-6 leading-relaxed text-muted-foreground">
               Minha trajetória no mercado imobiliário é guiada pelo propósito de{" "}
               <strong>transformar vidas por meio de negócios que geram segurança, crescimento e novas possibilidades</strong>.
             </p>
@@ -58,13 +67,6 @@ export default function SobrePage() {
               Acredito que <strong>comprar ou vender um imóvel está entre as decisões mais importantes da vida</strong>.
               Por isso, cada negociação deve ser conduzida com{" "}
               <strong>cuidado, estratégia e confiança</strong>.
-            </p>
-
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              Sou <strong>Técnica em Transações Imobiliárias</strong>, certificada pelo{" "}
-              <strong>Sindimóveis/MG</strong>, com especialização em{" "}
-              <strong>Direito Imobiliário</strong>, unindo atendimento humanizado e
-              segurança técnica em cada etapa.
             </p>
 
             <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -97,16 +99,15 @@ export default function SobrePage() {
 
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <div className="grid gap-6 sm:grid-cols-3">
-          {stats.map((stat) => (
+          {credentials.map((cred) => (
             <div
-              key={stat.label}
+              key={cred.text}
               className="flex flex-col items-center rounded-2xl bg-card p-8 text-center shadow-sm ring-1 ring-border"
             >
-              <stat.icon className="size-7 text-primary" />
-              <p className="mt-4 font-serif text-4xl font-semibold text-foreground">
-                {stat.value}
+              <cred.icon className="size-7 text-primary" />
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                {cred.text}
               </p>
-              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
             </div>
           ))}
         </div>

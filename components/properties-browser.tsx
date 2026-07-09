@@ -27,16 +27,21 @@ const priceRanges = [
   { label: 'Acima de R$ 1,5 mi', value: '1500000-99999999' },
 ]
 
-const ALL = 'all'
+const ALL = 'todos'
+
+function normalize(value: string | null, fallback: string) {
+  if (value === null || value === 'all') return fallback
+  return value
+}
 
 export function PropertiesBrowser() {
   const params = useSearchParams()
 
-  const [type, setType] = useState(params.get('type') ?? ALL)
-  const [city, setCity] = useState(params.get('city') ?? ALL)
+  const [type, setType] = useState(normalize(params.get('type'), ALL))
+  const [city, setCity] = useState(normalize(params.get('city'), ALL))
   const [neighborhood, setNeighborhood] = useState(ALL)
-  const [price, setPrice] = useState(params.get('price') ?? ALL)
-  const [bedrooms, setBedrooms] = useState(params.get('bedrooms') ?? ALL)
+  const [price, setPrice] = useState(normalize(params.get('price'), ALL))
+  const [bedrooms, setBedrooms] = useState(normalize(params.get('bedrooms'), ALL))
   const [sort, setSort] = useState('relevance')
 
   const filtered = useMemo(() => {
@@ -71,15 +76,15 @@ export function PropertiesBrowser() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 md:px-6">
-      <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-        <aside className="lg:sticky lg:top-24 lg:h-fit">
+      <div className="flex flex-col gap-8">
+        <div className="mx-auto w-full max-w-md">
           <div className="rounded-2xl border border-border bg-card p-6">
-            <div className="flex items-center gap-2 text-foreground">
+            <div className="flex items-center justify-center gap-2 text-foreground">
               <SlidersHorizontal className="size-5 text-primary" />
               <h2 className="font-serif text-lg">Filtros</h2>
             </div>
 
-            <div className="mt-6 flex flex-col gap-5">
+            <div className="mt-6 flex flex-col gap-3">
               <Filter label="Tipo de imóvel" value={type} onChange={setType}>
                 {propertyTypes.map((t) => (
                   <SelectItem key={t} value={t}>
@@ -125,15 +130,14 @@ export function PropertiesBrowser() {
               </Filter>
 
               <Button
-                variant="outline"
                 onClick={clearFilters}
-                className="rounded-xl"
+                className="w-full rounded-xl"
               >
                 Limpar filtros
               </Button>
             </div>
           </div>
-        </aside>
+        </div>
 
         <div>
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
@@ -210,11 +214,11 @@ function Filter({
         {label}
       </Label>
       <Select value={value} onValueChange={onChange}>
-        <SelectTrigger className="rounded-xl">
-          <SelectValue />
+        <SelectTrigger className="w-full rounded-xl">
+          <SelectValue placeholder="Todos" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">Todos</SelectItem>
+          <SelectItem value="todos">Todos</SelectItem>
           {children}
         </SelectContent>
       </Select>
