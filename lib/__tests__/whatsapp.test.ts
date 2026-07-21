@@ -85,11 +85,6 @@ describe('buildPropertyMessage', () => {
     assert.ok(msg.includes(`${baseUrl}/imoveis/apartamento-luxo-cabral`))
   })
 
-  it('contains image URL', () => {
-    const msg = buildMessage(mockProperty, 'interest', baseUrl)
-    assert.ok(msg.includes(`${baseUrl}/images/property-1.png`))
-  })
-
   it('uses correct action text for interest', () => {
     const msg = buildMessage(mockProperty, 'interest', baseUrl)
     assert.ok(msg.includes('Tenho interesse neste imóvel'))

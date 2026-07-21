@@ -21,7 +21,6 @@ export function buildPropertyMessage(
 ): string {
   const baseUrl = getBaseUrl()
   const url = `${baseUrl}/imoveis/${property.slug}`
-  const imageUrl = `${baseUrl}${property.images[0]}`
   const actionText = actionMessages[action]
 
   return [
@@ -33,8 +32,6 @@ export function buildPropertyMessage(
     `${property.title}`,
     `💰 ${formatPrice(property.price)}`,
     `📍 ${property.neighborhood}, ${property.city}`,
-    '',
-    `🖼️ Veja a foto: ${imageUrl}`,
     '',
     `🔗 ${url}`,
     '',
