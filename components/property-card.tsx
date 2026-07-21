@@ -44,12 +44,14 @@ export function PropertyCard({
   property: Property
 }) {
   const [isFavorite, setIsFavorite] = useState(false)
+  const [heartKey, setHeartKey] = useState(0)
   const specs = getPropertySpecs(property)
 
   const handleFavorite = useCallback((e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
     setIsFavorite((prev) => !prev)
+    setHeartKey((k) => k + 1)
   }, [])
 
   const handleShare = useCallback(
@@ -81,7 +83,7 @@ export function PropertyCard({
           type="button"
           onClick={handleFavorite}
           className={cn(
-            'inline-flex size-9 items-center justify-center rounded-full bg-background/90 text-foreground backdrop-blur-sm transition-colors duration-200 hover:bg-background',
+            'inline-flex size-9 items-center justify-center rounded-full bg-background/90 text-foreground backdrop-blur-sm transition-all duration-150 hover:bg-background active:scale-90',
             isFavorite && 'text-destructive',
           )}
           aria-label={
@@ -89,13 +91,14 @@ export function PropertyCard({
           }
         >
           <Heart
-            className={cn('size-4', isFavorite && 'fill-current')}
+            key={heartKey}
+            className={cn('size-4', isFavorite && 'fill-current animate-heart-pop')}
           />
         </button>
         <button
           type="button"
           onClick={handleShare}
-          className="inline-flex size-9 items-center justify-center rounded-full bg-background/90 text-foreground backdrop-blur-sm transition-colors duration-200 hover:bg-background"
+          className="inline-flex size-9 items-center justify-center rounded-full bg-background/90 text-foreground backdrop-blur-sm transition-all duration-150 hover:bg-background active:scale-90"
           aria-label="Compartilhar imóvel"
         >
           <Share2 className="size-4" />

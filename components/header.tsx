@@ -98,8 +98,16 @@ export function Header() {
         </button>
       </div>
 
-      {open && (
-        <div className="border-t border-border bg-background lg:hidden">
+      <div
+        className={cn(
+          'border-t border-border bg-background transition-all duration-200 ease-out lg:hidden',
+          open
+            ? 'grid-rows-[1fr] opacity-100'
+            : 'grid-rows-[0fr] opacity-0',
+        )}
+        style={{ display: 'grid' }}
+      >
+        <div className="overflow-hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-4 py-4">
             {navLinks.map((link) => (
               <Link
@@ -130,7 +138,7 @@ export function Header() {
             </Button>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   )
 }

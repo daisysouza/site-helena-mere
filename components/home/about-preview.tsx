@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Reveal } from '@/components/reveal'
 
 const highlights = [
   'Atendimento próximo e personalizado',
@@ -13,19 +14,19 @@ export function AboutPreview() {
   return (
     <section className="bg-card">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 md:grid-cols-2 md:px-6 md:py-28 lg:gap-16">
-        <div className="relative order-2 md:order-1">
+        <Reveal className="relative order-2 md:order-1">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
             <Image
               src="/images/helena-portrait.png"
               alt="Helena Mêre, corretora de imóveis"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover transition-transform duration-500 hover:scale-[1.03]"
             />
           </div>
-        </div>
+        </Reveal>
 
-        <div className="order-1 md:order-2">
+        <Reveal delay={150} className="order-1 md:order-2">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
             Sobre a Helena
           </span>
@@ -54,7 +55,7 @@ export function AboutPreview() {
               <ArrowRight className="size-4" />
             </Link>
           </Button>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

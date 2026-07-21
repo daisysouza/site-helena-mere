@@ -61,7 +61,7 @@ export function Testimonials() {
               type="button"
               onClick={scrollPrev}
               aria-label="Anterior"
-              className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all duration-150 hover:bg-primary hover:text-primary-foreground active:scale-90"
             >
               <ChevronLeft className="size-5" />
             </button>
@@ -69,7 +69,7 @@ export function Testimonials() {
               type="button"
               onClick={scrollNext}
               aria-label="Próximo"
-              className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all duration-150 hover:bg-primary hover:text-primary-foreground active:scale-90"
             >
               <ChevronRight className="size-5" />
             </button>
@@ -83,7 +83,7 @@ export function Testimonials() {
                 key={t.name}
                 className="min-w-0 flex-[0_0_100%] pr-6 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
               >
-                <figure className="flex h-full flex-col rounded-2xl bg-card p-7 shadow-sm ring-1 ring-border">
+                <figure className="flex h-full flex-col rounded-2xl bg-card p-7 shadow-sm ring-1 ring-border transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
                   <Quote className="size-8 text-accent" />
                   <div className="mt-4 flex gap-0.5">
                     {Array.from({ length: 5 }).map((_, i) => (

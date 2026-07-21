@@ -31,9 +31,9 @@ Desenvolvido com forte foco em **performance** e **eficiência de renderização
 
 ## 🛠️ Stack Tecnológica
 
-- **Next.js (App Router):** Arquitetura moderna utilizando Server Components e revalidação incremental (ISR).
+- **Next.js 16 (App Router) + React 19:**
 - **TypeScript:** Tipagem estática rigorosa para maior manutenibilidade.
-- **Tailwind CSS v4:** Estilização baseada em tokens com altíssimo desempenho de compilação.
+- **Tailwind CSS v4:**
 - **shadcn/ui & Embla:** Componentes totalmente acessíveis (Radix UI) e carrosséis leves de toque.
 
 ---

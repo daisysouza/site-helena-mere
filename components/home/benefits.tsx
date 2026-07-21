@@ -1,4 +1,5 @@
 import { HeartHandshake, MapPinned, ShieldCheck, Sparkles } from 'lucide-react'
+import { Reveal } from '@/components/reveal'
 
 const benefits = [
   {
@@ -30,29 +31,30 @@ const benefits = [
 export function Benefits() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
-      <div className="mx-auto max-w-2xl text-center">
-        <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
-          Por que escolher
-        </span>
-        <h2 className="mt-3 text-balance font-serif text-3xl font-semibold md:text-4xl">
-          Uma experiência completa, do sonho às chaves
-        </h2>
-      </div>
+      <Reveal>
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
+            Por que escolher
+          </span>
+          <h2 className="mt-3 text-balance font-serif text-3xl font-semibold md:text-4xl">
+            Uma experiência completa, do sonho às chaves
+          </h2>
+        </div>
+      </Reveal>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {benefits.map((benefit) => (
-          <div
-            key={benefit.title}
-            className="rounded-2xl bg-card p-7 shadow-sm ring-1 ring-border transition-shadow hover:shadow-md"
-          >
-            <div className="flex size-12 items-center justify-center rounded-xl bg-accent/40 text-primary">
-              <benefit.icon className="size-6" />
+        {benefits.map((benefit, i) => (
+          <Reveal key={benefit.title} delay={i * 100}>
+            <div className="rounded-2xl bg-card p-7 shadow-sm ring-1 ring-border transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
+              <div className="flex size-12 items-center justify-center rounded-xl bg-accent/40 text-primary">
+                <benefit.icon className="size-6" />
+              </div>
+              <h3 className="mt-5 font-serif text-xl">{benefit.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {benefit.description}
+              </p>
             </div>
-            <h3 className="mt-5 font-serif text-xl">{benefit.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {benefit.description}
-            </p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
