@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useId } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { SlidersHorizontal, SearchX } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -156,6 +156,7 @@ export function PropertiesBrowser() {
               <Select
                 value={sort}
                 onValueChange={setSort}
+                aria-label="Ordenar por"
                 items={[
                   { value: 'relevance', label: 'Relevância' },
                   { value: 'price-asc', label: 'Menor preço' },
@@ -217,13 +218,14 @@ function Filter({
   onChange: (value: string) => void
   children: React.ReactNode
 }) {
+  const id = useId()
   return (
     <div className="flex flex-col gap-1.5">
-      <Label className="text-xs font-medium text-muted-foreground">
+      <Label htmlFor={id} className="text-xs font-medium text-muted-foreground">
         {label}
       </Label>
-      <Select value={value} onValueChange={onChange}>
-        <SelectTrigger className="w-full rounded-xl">
+      <Select value={value} onValueChange={onChange} aria-label={label}>
+        <SelectTrigger id={id} className="w-full rounded-xl">
           <SelectValue placeholder="Todos" />
         </SelectTrigger>
         <SelectContent>

@@ -2,13 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import {
-  Bath,
-  BedDouble,
-  Car,
   Check,
   ChevronLeft,
   MapPin,
-  Maximize,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -20,6 +16,7 @@ import { WhatsappIcon } from '@/components/icons'
 import {
   formatPrice,
   getProperty,
+  getPropertySpecs,
   getSimilar,
   properties,
 } from '@/lib/properties'
@@ -53,12 +50,7 @@ export default async function PropertyPage({
   if (!property) notFound()
 
   const similar = getSimilar(slug)
-  const specs = [
-    { icon: BedDouble, label: 'Quartos', value: property.bedrooms },
-    { icon: Bath, label: 'Banheiros', value: property.bathrooms },
-    { icon: Car, label: 'Vagas', value: property.parking },
-    { icon: Maximize, label: 'Área', value: `${property.area} m²` },
-  ]
+  const specs = getPropertySpecs(property)
 
   const whatsappMessage = `Olá ${siteConfig.name}, tenho interesse no imóvel "${property.title}" (${formatPrice(property.price)}). Pode me passar mais informações?`
 

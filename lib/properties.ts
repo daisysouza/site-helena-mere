@@ -1,3 +1,6 @@
+import type { ComponentType } from 'react'
+import { Bath, BedDouble, Car, Maximize } from 'lucide-react'
+
 export type PropertyBadge = 'Novo' | 'Exclusivo' | 'Oportunidade'
 
 export type Property = {
@@ -243,3 +246,18 @@ export const neighborhoods = Array.from(
   new Set(properties.map((p) => p.neighborhood)),
 ).sort()
 export const cities = Array.from(new Set(properties.map((p) => p.city))).sort()
+
+export type PropertySpec = {
+  icon: ComponentType<{ className?: string }>
+  label: string
+  value: string | number
+}
+
+export function getPropertySpecs(property: Property): PropertySpec[] {
+  return [
+    { icon: BedDouble, label: 'Quartos', value: property.bedrooms },
+    { icon: Bath, label: 'Banheiros', value: property.bathrooms },
+    { icon: Car, label: 'Vagas', value: property.parking },
+    { icon: Maximize, label: 'Área', value: `${property.area} m²` },
+  ]
+}

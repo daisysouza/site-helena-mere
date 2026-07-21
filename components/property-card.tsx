@@ -4,17 +4,13 @@ import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  Bath,
-  BedDouble,
-  Car,
   Heart,
   MapPin,
-  Maximize,
   Share2,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
-import { formatPrice, type Property, type PropertyBadge } from '@/lib/properties'
+import { formatPrice, getPropertySpecs, type Property, type PropertyBadge } from '@/lib/properties'
 
 const badgeStyles: Record<PropertyBadge, string> = {
   Novo: 'bg-emerald-500 text-white',
@@ -48,6 +44,7 @@ export function PropertyCard({
   property: Property
 }) {
   const [isFavorite, setIsFavorite] = useState(false)
+  const specs = getPropertySpecs(property)
 
   const handleFavorite = useCallback((e: React.MouseEvent) => {
     e.preventDefault()
@@ -159,22 +156,14 @@ export function PropertyCard({
           </p>
 
           <div className="mt-auto grid grid-cols-4 gap-2 border-t border-border pt-4">
-            <SpecItem
-              icon={BedDouble}
-              value={property.bedrooms}
-              label="Quartos"
-            />
-            <SpecItem
-              icon={Bath}
-              value={property.bathrooms}
-              label="Banheiros"
-            />
-            <SpecItem icon={Car} value={property.parking} label="Vagas" />
-            <SpecItem
-              icon={Maximize}
-              value={`${property.area} m²`}
-              label="Área"
-            />
+            {specs.map((spec) => (
+              <SpecItem
+                key={spec.label}
+                icon={spec.icon}
+                value={spec.value}
+                label={spec.label}
+              />
+            ))}
           </div>
         </div>
       </Link>
