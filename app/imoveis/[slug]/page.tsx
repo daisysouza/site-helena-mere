@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { PropertyGallery } from '@/components/property-gallery'
 import { PropertyCard } from '@/components/property-card'
+import { PropertyActions } from '@/components/property-actions'
 import { WhatsappIcon } from '@/components/icons'
 import {
   formatPrice,
@@ -126,16 +127,23 @@ export default async function PropertyPage({
           {/* Sticky sidebar */}
           <aside className="lg:sticky lg:top-24 lg:h-fit">
             <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-              <div className="flex flex-wrap gap-2">
-                <Badge className="rounded-full bg-primary text-primary-foreground">
-                  {property.type}
-                </Badge>
-                <Badge
-                  variant="secondary"
-                  className="rounded-full bg-muted text-foreground"
-                >
-                  À {property.status.toLowerCase()}
-                </Badge>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex flex-wrap gap-2">
+                  <Badge className="rounded-full bg-primary text-primary-foreground">
+                    {property.type}
+                  </Badge>
+                  <Badge
+                    variant="secondary"
+                    className="rounded-full bg-muted text-foreground"
+                  >
+                    À {property.status.toLowerCase()}
+                  </Badge>
+                </div>
+                <PropertyActions
+                  slug={property.slug}
+                  title={property.title}
+                  price={property.price}
+                />
               </div>
 
               <h1 className="mt-4 text-balance font-serif text-2xl font-semibold leading-snug">

@@ -2,9 +2,9 @@
 
 ### 🌐 Acesse a aplicação em produção
 
-🔗[Link da aplicação] (https://site-helena-mere.vercel.app/)🔗
+🔗 https://site-helena-mere.vercel.app/
 
-Plataforma institucional de alta performance desenvolvida para **Helena Mêre**, projetada para fortalecer sua presença digital, apresentar imóveis de forma estratégica e otimizar a geração de leads por meio de conversão direta via WhatsApp.
+Plataforma institucional de desenvolvida para **Helena Mêre**, projetada para fortalecer sua presença digital, apresentar imóveis de forma estratégica e otimizar a geração de leads por meio de conversão direta via WhatsApp.
 
 ---
 
@@ -42,11 +42,9 @@ Desenvolvido com forte foco em **performance** e **eficiência de renderização
 
 Estrutura limpa e orientada a componentes, separando responsabilidades e facilitando a escalabilidade:
 
-```bash
-app/            # Roteamento baseado em arquivos (App Router) e páginas
-components/     # Componentes atômicos de interface e blocos de negócio
-lib/            # Configurações globais, clientes de API e utilitários
-```
+app/ # Roteamento baseado em arquivos (App Router) e páginas
+components/ # Componentes atômicos de interface e blocos de negócio
+lib/ # Configurações globais, clientes de API e utilitários
 
 ### Componentes Chave:
 

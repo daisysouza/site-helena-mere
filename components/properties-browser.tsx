@@ -153,9 +153,18 @@ export function PropertiesBrowser() {
               <Label className="whitespace-nowrap text-sm text-muted-foreground">
                 Ordenar por
               </Label>
-              <Select value={sort} onValueChange={setSort}>
+              <Select
+                value={sort}
+                onValueChange={setSort}
+                items={[
+                  { value: 'relevance', label: 'Relevância' },
+                  { value: 'price-asc', label: 'Menor preço' },
+                  { value: 'price-desc', label: 'Maior preço' },
+                  { value: 'area-desc', label: 'Maior área' },
+                ]}
+              >
                 <SelectTrigger className="w-[180px] rounded-xl">
-                  <SelectValue />
+                  <SelectValue placeholder="Relevância" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="relevance">Relevância</SelectItem>

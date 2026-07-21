@@ -1,3 +1,5 @@
+export type PropertyBadge = 'Novo' | 'Exclusivo' | 'Oportunidade'
+
 export type Property = {
   slug: string
   title: string
@@ -14,6 +16,8 @@ export type Property = {
   description: string
   amenities: string[]
   images: string[]
+  ref?: string
+  badge?: PropertyBadge
 }
 
 export const properties: Property[] = [
@@ -40,6 +44,8 @@ export const properties: Property[] = [
       'Energia solar',
       'Portão eletrônico',
     ],
+    ref: '2045',
+    badge: 'Exclusivo',
     images: [
       '/images/property-2.png',
       '/images/property-1.png',
@@ -76,6 +82,8 @@ export const properties: Property[] = [
       '/images/property-5.png',
       '/images/property-6.png',
     ],
+    ref: '2051',
+    badge: 'Novo',
   },
   {
     slug: 'cobertura-buritis-bh',
@@ -106,6 +114,8 @@ export const properties: Property[] = [
       '/images/property-3.png',
       '/images/property-5.png',
     ],
+    ref: '2078',
+    badge: 'Exclusivo',
   },
   {
     slug: 'casa-jardim-riacho-contagem',
@@ -134,6 +144,8 @@ export const properties: Property[] = [
       '/images/property-5.png',
       '/images/property-3.png',
     ],
+    ref: '2103',
+    badge: 'Oportunidade',
   },
   {
     slug: 'apartamento-savassi-bh',
@@ -163,6 +175,8 @@ export const properties: Property[] = [
       '/images/property-3.png',
       '/images/property-5.png',
     ],
+    ref: '2112',
+    badge: 'Novo',
   },
   {
     slug: 'casa-alto-padrao-vila-paris',
@@ -193,6 +207,7 @@ export const properties: Property[] = [
       '/images/property-1.png',
       '/images/property-3.png',
     ],
+    ref: '2130',
   },
 ]
 
