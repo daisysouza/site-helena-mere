@@ -3,16 +3,22 @@
 import { useState, useCallback } from 'react'
 import { Heart, Share2, Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { formatPrice } from '@/lib/properties'
+import { formatPrice, type Property } from '@/lib/properties'
 
 export function PropertyActions({
   slug,
   title,
   price,
+  propertyRef,
+  neighborhood,
+  city,
 }: {
   slug: string
   title: string
   price: number
+  propertyRef?: string
+  neighborhood?: string
+  city?: string
 }) {
   const [isFavorite, setIsFavorite] = useState(false)
   const [heartKey, setHeartKey] = useState(0)
@@ -25,22 +31,27 @@ export function PropertyActions({
 
   const handleShare = useCallback(async () => {
     const url = `${window.location.origin}/imoveis/${slug}`
+    const text = [
+      title,
+      propertyRef ? `REF: ${propertyRef}` : '',
+      formatPrice(price),
+      neighborhood && city ? `${neighborhood}, ${city}` : '',
+      url,
+    ]
+      .filter(Boolean)
+      .join(' | ')
     if (navigator.share) {
       try {
-        await navigator.share({
-          title,
-          text: `${title} - ${formatPrice(price)}`,
-          url,
-        })
+        await navigator.share({ title, text, url })
       } catch {
         /* user cancelled */
       }
     } else {
-      await navigator.clipboard.writeText(url)
+      await navigator.clipboard.writeText(text)
       setShared(true)
       setTimeout(() => setShared(false), 1500)
     }
-  }, [slug, title, price])
+  }, [slug, title, price, propertyRef, neighborhood, city])
 
   return (
     <div className="flex gap-2">

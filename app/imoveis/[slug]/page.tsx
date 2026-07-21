@@ -13,14 +13,9 @@ import { PropertyGallery } from '@/components/property-gallery'
 import { PropertyCard } from '@/components/property-card'
 import { PropertyActions } from '@/components/property-actions'
 import { WhatsappIcon } from '@/components/icons'
-import {
-  formatPrice,
-  getProperty,
-  getPropertySpecs,
-  getSimilar,
-  properties,
-} from '@/lib/properties'
-import { siteConfig, whatsappLink } from '@/lib/site'
+import { formatPrice, getProperty, getPropertySpecs, getSimilar, properties } from '@/lib/properties'
+import { propertyWhatsAppLink } from '@/lib/whatsapp'
+import { siteConfig } from '@/lib/site'
 
 export function generateStaticParams() {
   return properties.map((p) => ({ slug: p.slug }))
@@ -51,8 +46,6 @@ export default async function PropertyPage({
 
   const similar = getSimilar(slug)
   const specs = getPropertySpecs(property)
-
-  const whatsappMessage = `Olá ${siteConfig.name}, tenho interesse no imóvel "${property.title}" (${formatPrice(property.price)}). Pode me passar mais informações?`
 
   return (
     <>
@@ -135,6 +128,9 @@ export default async function PropertyPage({
                   slug={property.slug}
                   title={property.title}
                   price={property.price}
+                  propertyRef={property.ref}
+                  neighborhood={property.neighborhood}
+                  city={property.city}
                 />
               </div>
 
@@ -179,7 +175,7 @@ export default async function PropertyPage({
                 className="mt-6 w-full rounded-xl text-base"
               >
                 <a
-                  href={whatsappLink(whatsappMessage)}
+                  href={propertyWhatsAppLink(property, 'interest')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2"

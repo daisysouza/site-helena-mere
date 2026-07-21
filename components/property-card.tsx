@@ -59,21 +59,26 @@ export function PropertyCard({
       e.preventDefault()
       e.stopPropagation()
       const url = `${window.location.origin}/imoveis/${property.slug}`
+      const text = [
+        property.title,
+        property.ref ? `REF: ${property.ref}` : '',
+        formatPrice(property.price),
+        `${property.neighborhood}, ${property.city}`,
+        url,
+      ]
+        .filter(Boolean)
+        .join(' | ')
       if (navigator.share) {
         try {
-          await navigator.share({
-            title: property.title,
-            text: `${property.title} - ${formatPrice(property.price)}`,
-            url,
-          })
+          await navigator.share({ title: property.title, text, url })
         } catch {
           /* user cancelled */
         }
       } else {
-        await navigator.clipboard.writeText(url)
+        await navigator.clipboard.writeText(text)
       }
     },
-    [property.slug, property.title, property.price],
+    [property.slug, property.title, property.price, property.ref, property.neighborhood, property.city],
   )
 
   return (
