@@ -150,6 +150,12 @@ export default async function PropertyPage({
                 {formatPrice(property.price)}
               </p>
 
+              {property.ref && (
+                <p className="mt-2 text-sm font-medium text-muted-foreground">
+                  REF {property.ref}
+                </p>
+              )}
+
               <div className="mt-6 grid grid-cols-2 gap-3">
                 {specs.map((spec) => (
                   <div
