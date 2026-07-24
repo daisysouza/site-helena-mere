@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     'Helena Mêre',
   ],
   openGraph: {
-    title: 'Helena Mêre Corretora | Imóveis Premium em MG',
-    description: 'Soluções completas em compra, venda e locação de imóveis na região metropolitana de Belo Horizonte',
+    title: 'Helena Mêre Corretora | Imóveis Selecionados em MG',
+    description: 'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte',
     url: 'https://helenamere.com.br',
     siteName: 'Helena Mêre Corretora',
     images: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Helena Mêre Corretora | Imóveis Premium em MG',
+    title: 'Helena Mêre Corretora | Imóveis Selecionados em MG',
     description: 'Atendimento personalizado para encontrar seu imóvel dos sonhos',
     images: ['/images/helena-portrait.png'],
   },
