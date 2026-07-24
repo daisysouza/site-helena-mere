@@ -39,24 +39,26 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Helena Mêre Corretora | Imóveis Selecionados em MG',
-    description: 'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte',
-    url: 'https://helenamere.com.br',
+    description:
+      'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte 🌍🔑',
+    url: 'https://site-helena-mere.vercel.app',
     siteName: 'Helena Mêre Corretora',
+    locale: 'pt_BR',
+    type: 'website',
     images: [
       {
         url: '/images/helena-portrait.png',
         width: 1200,
         height: 630,
-        alt: 'Helena Mêre - Corretora de Imóveis',
+        alt: 'Helena Mêre Corretora',
       },
     ],
-    locale: 'pt_BR',
-    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Helena Mêre Corretora | Imóveis Selecionados em MG',
-    description: 'Atendimento personalizado para encontrar seu imóvel dos sonhos',
+    description:
+      'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte 🌍🔑',
     images: ['/images/helena-portrait.png'],
   },
 }
