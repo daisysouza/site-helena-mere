@@ -4,6 +4,7 @@ import { useMemo, useState, useId } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { SlidersHorizontal, SearchX } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
   Select,
@@ -42,6 +43,7 @@ export function PropertiesBrowser() {
   const [neighborhood, setNeighborhood] = useState(ALL)
   const [price, setPrice] = useState(normalize(params.get('price'), ALL))
   const [bedrooms, setBedrooms] = useState(normalize(params.get('bedrooms'), ALL))
+  const [ref, setRef] = useState(params.get('ref') ?? '')
   const [sort, setSort] = useState('relevance')
 
   const filtered = useMemo(() => {
@@ -50,6 +52,7 @@ export function PropertiesBrowser() {
       if (city !== ALL && p.city !== city) return false
       if (neighborhood !== ALL && p.neighborhood !== neighborhood) return false
       if (bedrooms !== ALL && p.bedrooms < Number(bedrooms)) return false
+      if (ref.trim() && p.ref !== ref.trim()) return false
       if (price !== ALL) {
         const [min, max] = price.split('-').map(Number)
         if (p.price < min || p.price > max) return false
@@ -63,7 +66,7 @@ export function PropertiesBrowser() {
     if (sort === 'area-desc') list = [...list].sort((a, b) => b.area - a.area)
 
     return list
-  }, [type, city, neighborhood, price, bedrooms, sort])
+  }, [type, city, neighborhood, price, bedrooms, ref, sort])
 
   function clearFilters() {
     setType(ALL)
@@ -71,6 +74,7 @@ export function PropertiesBrowser() {
     setNeighborhood(ALL)
     setPrice(ALL)
     setBedrooms(ALL)
+    setRef('')
     setSort('relevance')
   }
 
@@ -128,6 +132,18 @@ export function PropertiesBrowser() {
                   </SelectItem>
                 ))}
               </Filter>
+
+              <div className="flex flex-col gap-1.5">
+                <Label className="text-xs font-medium text-muted-foreground">
+                  Código de referência
+                </Label>
+                <Input
+                  value={ref}
+                  onChange={(e) => setRef(e.target.value)}
+                  placeholder="Ex.: 2051"
+                  className="h-9 rounded-xl"
+                />
+              </div>
 
               <Button
                 onClick={clearFilters}

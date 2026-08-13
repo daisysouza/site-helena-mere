@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
   Select,
@@ -21,12 +22,14 @@ export function SearchBar() {
   const [type, setType] = useState('')
   const [city, setCity] = useState('')
   const [bedrooms, setBedrooms] = useState('')
+  const [ref, setRef] = useState('')
 
   function handleSearch() {
     const params = new URLSearchParams()
     if (type) params.set('type', type)
     if (city) params.set('city', city)
     if (bedrooms) params.set('bedrooms', bedrooms)
+    if (ref.trim()) params.set('ref', ref.trim())
     router.push(`/imoveis?${params.toString()}`)
   }
 
@@ -85,6 +88,21 @@ export function SearchBar() {
               ))}
             </SelectContent>
           </Select>
+        </div>
+
+        <div className="flex flex-col gap-1 text-center">
+          <Label className="text-xs font-medium text-muted-foreground">
+            Código de referência
+          </Label>
+          <Input
+            value={ref}
+            onChange={(e) => setRef(e.target.value)}
+            placeholder="Ex.: 2051"
+            className="h-10 rounded-xl text-center"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') handleSearch()
+            }}
+          />
         </div>
 
         <Button

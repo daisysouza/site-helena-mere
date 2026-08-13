@@ -143,15 +143,14 @@ export function PropertyCard({
               </Badge>
             )}
           </div>
-
-          {property.ref && (
-            <span className="absolute bottom-3 left-3 rounded-full bg-background/90 px-3 py-1 text-xs font-semibold tracking-wide text-foreground backdrop-blur-sm">
-              REF {property.ref}
-            </span>
-          )}
         </div>
 
         <div className="flex flex-1 flex-col p-5">
+          {property.ref && (
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              REF {property.ref}
+            </p>
+          )}
           <p className="text-xl font-bold text-primary">
             {formatPrice(property.price)}
           </p>
