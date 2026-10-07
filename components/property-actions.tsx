@@ -3,23 +3,10 @@
 import { useState, useCallback } from 'react'
 import { Heart, Share2, Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { formatPrice, type Property } from '@/lib/properties'
+import type { Property } from '@/lib/properties'
+import { buildPropertyMessage } from '@/lib/whatsapp'
 
-export function PropertyActions({
-  slug,
-  title,
-  price,
-  propertyRef,
-  neighborhood,
-  city,
-}: {
-  slug: string
-  title: string
-  price: number
-  propertyRef?: string
-  neighborhood?: string
-  city?: string
-}) {
+export function PropertyActions({ property }: { property: Property }) {
   const [isFavorite, setIsFavorite] = useState(false)
   const [heartKey, setHeartKey] = useState(0)
   const [shared, setShared] = useState(false)
@@ -30,19 +17,14 @@ export function PropertyActions({
   }, [])
 
   const handleShare = useCallback(async () => {
-    const url = `${window.location.origin}/imoveis/${slug}`
-    const text = [
-      title,
-      propertyRef ? `REF: ${propertyRef}` : '',
-      formatPrice(price),
-      neighborhood && city ? `${neighborhood}, ${city}` : '',
-      url,
-    ]
-      .filter(Boolean)
-      .join(' | ')
+    const text = buildPropertyMessage(property)
+    const url = new URL(
+      `/imoveis/${property.slug}`,
+      window.location.origin,
+    ).toString()
     if (navigator.share) {
       try {
-        await navigator.share({ title, text, url })
+        await navigator.share({ title: property.title, text, url })
       } catch {
         /* user cancelled */
       }
@@ -51,7 +33,7 @@ export function PropertyActions({
       setShared(true)
       setTimeout(() => setShared(false), 1500)
     }
-  }, [slug, title, price, propertyRef, neighborhood, city])
+  }, [property])
 
   return (
     <div className="flex gap-2">

@@ -126,14 +126,7 @@ export default async function PropertyPage({
                     À {property.status.toLowerCase()}
                   </Badge>
                 </div>
-                <PropertyActions
-                  slug={property.slug}
-                  title={property.title}
-                  price={property.price}
-                  propertyRef={property.ref}
-                  neighborhood={property.neighborhood}
-                  city={property.city}
-                />
+                <PropertyActions property={property} />
               </div>
 
               <h1 className="mt-4 break-words text-balance font-serif text-xl font-semibold leading-snug sm:text-2xl">
@@ -177,7 +170,7 @@ export default async function PropertyPage({
                 className="mt-6 w-full rounded-xl text-base"
               >
                 <a
-                  href={propertyWhatsAppLink(property, 'interest')}
+                  href={propertyWhatsAppLink(property)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2"

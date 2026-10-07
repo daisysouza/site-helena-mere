@@ -11,6 +11,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { formatPrice, getPropertySpecs, type Property, type PropertyBadge } from '@/lib/properties'
+import { buildPropertyMessage } from '@/lib/whatsapp'
 
 const badgeStyles: Record<PropertyBadge, string> = {
   Novo: 'bg-emerald-500 text-white',
@@ -58,16 +59,11 @@ export function PropertyCard({
     async (e: React.MouseEvent) => {
       e.preventDefault()
       e.stopPropagation()
-      const url = `${window.location.origin}/imoveis/${property.slug}`
-      const text = [
-        property.title,
-        property.ref ? `REF: ${property.ref}` : '',
-        formatPrice(property.price),
-        `${property.neighborhood}, ${property.city}`,
-        url,
-      ]
-        .filter(Boolean)
-        .join(' | ')
+      const text = buildPropertyMessage(property)
+      const url = new URL(
+        `/imoveis/${property.slug}`,
+        window.location.origin,
+      ).toString()
       if (navigator.share) {
         try {
           await navigator.share({ title: property.title, text, url })
@@ -78,7 +74,7 @@ export function PropertyCard({
         await navigator.clipboard.writeText(text)
       }
     },
-    [property.slug, property.title, property.price, property.ref, property.neighborhood, property.city],
+    [property],
   )
 
   return (
@@ -124,7 +120,6 @@ export function PropertyCard({
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
-
           <div className="absolute left-3 top-3 flex flex-wrap gap-2">
             <Badge className="rounded-full bg-primary text-primary-foreground">
               {property.type}

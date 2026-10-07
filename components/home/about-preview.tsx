@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Reveal } from '@/components/reveal'
 
 const highlights = [
+  'CRECI: 52631',
   'Atendimento próximo e personalizado',
   'Profundo conhecimento da região',
   'Negociação transparente e segura',
