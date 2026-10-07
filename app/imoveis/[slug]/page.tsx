@@ -58,10 +58,12 @@ export default async function PropertyPage({
           Voltar para imóveis
         </Link>
 
-        <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_380px]">
-          <div>
+        <div className="mt-5 grid min-w-0 grid-cols-1 gap-6 sm:mt-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10">
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1">
             <PropertyGallery images={property.images} title={property.title} />
+          </div>
 
+          <div className="order-3 min-w-0 lg:col-start-1 lg:row-start-2">
             <div className="mt-10">
               <h2 className="font-serif text-2xl font-semibold">Descrição</h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -95,7 +97,7 @@ export default async function PropertyPage({
                 <MapPin className="size-4 text-secondary" />
                 {property.neighborhood}, {property.city} - MG
               </p>
-              <div className="mt-4 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-border">
+              <div className="mt-4 aspect-[4/3] w-full min-w-0 overflow-hidden rounded-2xl border border-border sm:aspect-[16/9]">
                 <iframe
                   title={`Mapa de ${property.neighborhood}`}
                   src={`https://www.google.com/maps?q=${encodeURIComponent(
@@ -110,8 +112,8 @@ export default async function PropertyPage({
           </div>
 
           {/* Sticky sidebar */}
-          <aside className="lg:sticky lg:top-24 lg:h-fit">
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+          <aside className="order-2 min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:order-none lg:sticky lg:top-24 lg:h-fit">
+            <div className="rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-6">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex flex-wrap gap-2">
                   <Badge className="rounded-full bg-primary text-primary-foreground">
@@ -134,7 +136,7 @@ export default async function PropertyPage({
                 />
               </div>
 
-              <h1 className="mt-4 text-balance font-serif text-2xl font-semibold leading-snug">
+              <h1 className="mt-4 break-words text-balance font-serif text-xl font-semibold leading-snug sm:text-2xl">
                 {property.title}
               </h1>
               <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -142,7 +144,7 @@ export default async function PropertyPage({
                 {property.neighborhood}, {property.city}
               </p>
 
-              <p className="mt-5 text-3xl font-semibold text-primary">
+              <p className="mt-5 text-2xl font-semibold text-primary sm:text-3xl">
                 {formatPrice(property.price)}
               </p>
 
@@ -156,10 +158,10 @@ export default async function PropertyPage({
                 {specs.map((spec) => (
                   <div
                     key={spec.label}
-                    className="rounded-xl bg-muted/60 p-4 text-center"
+                    className="min-w-0 rounded-xl bg-muted/60 p-3 text-center sm:p-4"
                   >
                     <spec.icon className="mx-auto size-5 text-primary" />
-                    <p className="mt-2 text-lg font-semibold text-foreground">
+                    <p className="mt-2 break-words text-base font-semibold text-foreground sm:text-lg">
                       {spec.value}
                     </p>
                     <p className="text-xs text-muted-foreground">

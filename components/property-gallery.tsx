@@ -105,7 +105,7 @@ export function PropertyGallery({
   )
 
   const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+    (e: React.PointerEvent<HTMLDivElement>) => {
       const rect = e.currentTarget.getBoundingClientRect()
       const x = ((e.clientX - rect.left) / rect.width) * 100
       const y = ((e.clientY - rect.top) / rect.height) * 100
@@ -116,18 +116,22 @@ export function PropertyGallery({
 
   return (
     <>
-      <div>
+      <div className="w-full min-w-0">
         {/* Main carousel */}
-        <div className="relative">
+        <div className="relative w-full min-w-0">
           <div ref={emblaRef} className="overflow-hidden rounded-2xl">
             <div className="flex">
               {images.map((img, i) => (
                 <div
                   key={img + i}
-                  className="relative flex-none basis-full cursor-zoom-in overflow-hidden"
-                  onMouseEnter={() => setIsZooming(true)}
-                  onMouseLeave={() => setIsZooming(false)}
-                  onMouseMove={handleMouseMove}
+                  className="relative min-w-0 flex-none basis-full cursor-zoom-in"
+                  onPointerEnter={(e) => {
+                    if (e.pointerType === 'mouse') setIsZooming(true)
+                  }}
+                  onPointerLeave={() => setIsZooming(false)}
+                  onPointerMove={(e) => {
+                    if (e.pointerType === 'mouse') handleMouseMove(e)
+                  }}
                   onClick={() => openLightbox(i)}
                   role="button"
                   tabIndex={0}
@@ -136,7 +140,7 @@ export function PropertyGallery({
                     if (e.key === 'Enter') openLightbox(i)
                   }}
                 >
-                  <div className="relative aspect-[16/10]">
+                  <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted/40 sm:aspect-[16/10] lg:aspect-auto lg:h-[68vh] lg:max-h-[720px]">
                     {loaded[i] !== true && (
                       <div className="absolute inset-0 animate-pulse rounded-2xl bg-muted" />
                     )}
@@ -147,7 +151,7 @@ export function PropertyGallery({
                       priority={i === 0}
                       sizes="(max-width: 1024px) 100vw, 66vw"
                       className={cn(
-                        'rounded-2xl object-cover transition-opacity duration-300',
+                        'object-contain transition-opacity duration-300',
                         loaded[i] === true ? 'opacity-100' : 'opacity-0',
                         isZooming && 'scale-[1.3] transition-transform duration-500 ease-out',
                       )}
@@ -209,41 +213,39 @@ export function PropertyGallery({
 
         {/* Thumbnails */}
         {images.length > 1 && (
-          <div className="mt-4 overflow-x-auto scrollbar-hide">
-            <div className="flex gap-2 sm:gap-3">
-              {images.map((img, i) => (
-                <button
-                  key={img + i}
-                  type="button"
-                  onClick={() => scrollTo(i)}
-                  aria-label={`Ver foto ${i + 1}`}
+          <div className="mt-3 grid w-full min-w-0 grid-cols-4 gap-2 sm:mt-4 sm:grid-cols-6 sm:gap-3 lg:grid-cols-8 xl:grid-cols-9">
+            {images.map((img, i) => (
+              <button
+                key={img + i}
+                type="button"
+                onClick={() => scrollTo(i)}
+                aria-label={`Ver foto ${i + 1}`}
+                className={cn(
+                  'relative overflow-hidden rounded-lg ring-2 transition-all duration-200',
+                  'aspect-[4/3] w-full',
+                  active === i
+                    ? 'ring-primary opacity-100'
+                    : 'ring-transparent opacity-60 hover:opacity-100',
+                )}
+              >
+                {thumbLoaded[i] !== true && (
+                  <div className="absolute inset-0 animate-pulse bg-muted" />
+                )}
+                <Image
+                  src={img || '/placeholder.svg'}
+                  alt={`${title} - miniatura ${i + 1}`}
+                  fill
+                  sizes="100px"
                   className={cn(
-                    'relative flex-none overflow-hidden rounded-lg ring-2 transition-all duration-200',
-                    'aspect-[4/3] w-16 sm:w-20 md:w-24',
-                    active === i
-                      ? 'ring-primary opacity-100'
-                      : 'ring-transparent opacity-60 hover:opacity-100',
+                    'object-cover transition-opacity duration-200',
+                    thumbLoaded[i] === true ? 'opacity-100' : 'opacity-0',
                   )}
-                >
-                  {thumbLoaded[i] !== true && (
-                    <div className="absolute inset-0 animate-pulse bg-muted" />
-                  )}
-                  <Image
-                    src={img || '/placeholder.svg'}
-                    alt={`${title} - miniatura ${i + 1}`}
-                    fill
-                    sizes="100px"
-                    className={cn(
-                      'object-cover transition-opacity duration-200',
-                      thumbLoaded[i] === true ? 'opacity-100' : 'opacity-0',
-                    )}
-                    onLoad={() =>
-                      setThumbLoaded((prev) => ({ ...prev, [i]: true }))
-                    }
-                  />
-                </button>
-              ))}
-            </div>
+                  onLoad={() =>
+                    setThumbLoaded((prev) => ({ ...prev, [i]: true }))
+                  }
+                />
+              </button>
+            ))}
           </div>
         )}
       </div>
@@ -285,17 +287,15 @@ export function PropertyGallery({
                   key={img + i}
                   className="relative flex-none basis-full h-full"
                 >
-                  <div className="relative mx-auto flex h-full max-w-[90vw] items-center justify-center px-4 py-16 md:px-16 md:py-20">
-                    <div className="relative aspect-[4/3] h-full w-full max-h-[80vh]">
-                      <Image
-                        src={img || '/placeholder.svg'}
-                        alt={`${title} - foto ${i + 1}`}
-                        fill
-                        className="object-contain"
-                        sizes="90vw"
-                        priority={i === 0}
-                      />
-                    </div>
+                  <div className="relative mx-auto h-full w-full p-4 sm:max-w-[92vw] sm:px-16 sm:py-20">
+                    <Image
+                      src={img || '/placeholder.svg'}
+                      alt={`${title} - foto ${i + 1}`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 640px) 100vw, 90vw"
+                      priority={i === 0}
+                    />
                   </div>
                 </div>
               ))}
