@@ -38,6 +38,7 @@ const credentials = [
   {
     icon: Award,
     text: 'Especialização em Direito Imobiliário',
+    detail: 'CRECI: 52631',
   },
   {
     icon: Heart,
@@ -108,6 +109,11 @@ export default function SobrePage() {
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 {cred.text}
               </p>
+              {cred.detail && (
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {cred.detail}
+                </p>
+              )}
             </div>
           ))}
         </div>
