@@ -101,7 +101,7 @@ export default async function PropertyPage({
                 <iframe
                   title={`Mapa de ${property.neighborhood}`}
                   src={`https://www.google.com/maps?q=${encodeURIComponent(
-                    `${property.neighborhood}, ${property.city}, MG`,
+                    property.mapQuery ?? `${property.neighborhood}, ${property.city}, MG`,
                   )}&output=embed`}
                   className="size-full"
                   loading="lazy"
