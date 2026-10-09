@@ -117,7 +117,7 @@ export const properties: Property[] = [
     bedrooms: 3,
     bathrooms: 2,
     parking: 2,
-    area: 140,
+    area: 130,
     mapQuery: 'Cabral, Contagem - MG, Brasil',
     featured: true,
     description:
