@@ -21,6 +21,8 @@ export function whatsappLink(message?: string) {
 export const navLinks = [
   { href: '/', label: 'Início' },
   { href: '/imoveis', label: 'Imóveis' },
+  { href: '/bairro-cabral-contagem', label: 'Bairro Cabral' },
+  { href: '/noticias', label: 'Blog' },
   { href: '/sobre', label: 'Sobre' },
   { href: '/anuncie-seu-imovel', label: 'Anuncie seu Imóvel' },
   { href: '/contato', label: 'Contato' },
