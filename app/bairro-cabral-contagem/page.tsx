@@ -29,8 +29,8 @@ export default function BairroCabralPage() {
     <>
       <section className="relative isolate flex min-h-[540px] items-center overflow-hidden bg-primary text-white md:min-h-[610px]">
         <Image
-          src="/images/cabral/cabral-banner.jpg"
-          alt="Vista aérea do Shopping Contagem e do bairro Cabral"
+          src="/images/cabral/casa-sabia.jpg"
+          alt="Casa contemporânea com jardim, ipê-amarelo e sabiá-laranjeira"
           fill
           priority
           sizes="100vw"
@@ -40,14 +40,11 @@ export default function BairroCabralPage() {
         <div className="mx-auto w-full max-w-7xl px-4 py-20 md:px-6 md:py-24">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-              <MapPin className="size-3.5" /> Guia de bairro · Contagem, MG
+              <MapPin className="size-3.5" /> Guia do bairro
             </p>
-            <h1 className="mt-7 font-serif text-5xl font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mt-7 font-serif text-4xl font-medium leading-[1.08] tracking-tight md:text-5xl lg:text-6xl">
               Cabral: um bairro para chamar de <span className="text-accent">seu.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
-              Natureza, conveniência e novas possibilidades de viver em Contagem. Descubra o que faz do Cabral uma escolha especial para morar e investir.
-            </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full bg-accent px-6 text-[#163b24] hover:bg-white">
                 <a href="#conheca">Conheça o bairro <ArrowDown className="ml-2 size-4" /></a>
@@ -70,11 +67,11 @@ export default function BairroCabralPage() {
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Conheça o Cabral</p>
-              <h2 className="mt-4 font-serif text-4xl leading-tight text-[#26392d] md:text-5xl">Um bairro com espaço para viver bem.</h2>
+              <h2 className="mt-4 font-serif text-4xl leading-tight text-[#26392d] md:text-5xl">Natureza, praticidade e qualidade de vida</h2>
             </div>
             <div className="max-w-3xl text-lg leading-relaxed text-[#657067]">
-              <p>O Cabral é um bairro de Contagem que reúne referências importantes para a rotina e para o lazer. A Avenida Severino Ballesteros ajuda a orientar a região, enquanto o Parque Linear Sarandi, o Shopping Contagem e o campus do CEFET-MG fazem parte da paisagem cotidiana.</p>
-              <p className="mt-5">Além dos pontos de encontro e serviços, a Reserva Ambiental do Cabral aproxima os moradores de áreas verdes. É uma região em transformação, com diferentes opções de moradia e um jeito próprio de pertencer a Contagem.</p>
+              <p>O bairro Cabral, em Contagem (MG), combina a tranquilidade das áreas verdes com a praticidade de uma região em constante desenvolvimento. Com acesso pela Avenida Severino Ballesteros, o bairro oferece uma localização estratégica, próxima a importantes pontos de comércio, lazer e educação, como o Shopping Contagem, o Parque Linear Sarandi e o campus do CEFET-MG. A presença da Reserva Ambiental do Cabral traz maior contato com a natureza e valoriza a paisagem.</p>
+              <p className="mt-5">Com diferentes opções de moradia e uma infraestrutura que acompanha o crescimento da região, o Cabral se destaca entre os bairros de Contagem para quem deseja morar bem, com áreas verdes e boas perspectivas de valorização imobiliária.</p>
             </div>
           </div>
         </div>
@@ -128,7 +125,6 @@ export default function BairroCabralPage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Por que comprar no Cabral?</p>
             <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">Um lugar para construir seus próximos capítulos.</h2>
             <p className="mt-5 text-lg leading-relaxed text-white/80">Comprar um imóvel é escolher o cenário da sua vida. No Cabral, a combinação de infraestrutura, lazer e conexão com a cidade torna a região uma alternativa interessante para quem busca morar ou diversificar seu patrimônio.</p>
-            <p className="mt-4 text-sm leading-relaxed text-white/65">Cada imóvel e cada plano são únicos. Avalie localização, documentação, condições do imóvel e seus objetivos antes de decidir.</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="rounded-2xl border border-white/15 bg-white/[0.08] p-6 sm:col-span-2">
@@ -140,7 +136,7 @@ export default function BairroCabralPage() {
               <Trees className="size-6 text-accent" /><h3 className="mt-4 font-serif text-xl">Qualidade de vida</h3><p className="mt-2 text-sm leading-relaxed text-white/75">Lazer e áreas verdes compõem uma rotina mais equilibrada.</p>
             </div>
             <div className="rounded-2xl border border-white/15 bg-white/[0.08] p-6">
-              <MapPin className="size-6 text-accent" /><h3 className="mt-4 font-serif text-xl">Escolha com contexto</h3><p className="mt-2 text-sm leading-relaxed text-white/75">Entender o entorno ajuda a encontrar um imóvel alinhado às suas prioridades.</p>
+              <MapPin className="size-6 text-accent" /><h3 className="mt-4 font-serif text-xl">Escolha bem</h3><p className="mt-2 text-sm leading-relaxed text-white/75">Entender o entorno ajuda a encontrar um imóvel alinhado às suas prioridades.</p>
             </div>
           </div>
         </div>
@@ -148,7 +144,7 @@ export default function BairroCabralPage() {
 
       <section className="bg-[#f8f7f2] py-16 md:py-20">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 md:flex-row md:items-center md:justify-between md:px-6">
-          <div><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Seu próximo endereço pode estar aqui</p><h2 className="mt-3 font-serif text-3xl font-semibold text-[#26392d] md:text-4xl">Vamos encontrar seu lugar no Cabral?</h2><p className="mt-3 text-[#657067]">Converse com {siteConfig.name} e conheça as oportunidades na região.</p></div>
+          <div><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Seu próximo endereço pode estar aqui</p><h2 className="mt-3 font-serif text-3xl font-semibold text-[#26392d] md:text-4xl">Vamos encontrar o melhor imóvel para você?</h2><p className="mt-3 text-[#657067]">Converse com {siteConfig.name} e conheça as oportunidades na região.</p></div>
           <div className="flex flex-wrap gap-3">
             <Button asChild size="lg" className="rounded-full bg-primary px-6 hover:bg-[#006b32]"><Link href="/imoveis">Ver imóveis <ArrowRight className="ml-2 size-4" /></Link></Button>
             <Button asChild size="lg" variant="outline" className="rounded-full border-primary px-6 text-primary hover:bg-accent/25"><a href={whatsappLink('Olá! Quero saber mais sobre imóveis no bairro Cabral, em Contagem.')} target="_blank" rel="noopener noreferrer"><WhatsappIcon className="mr-2 size-4" /> Falar com a Helena</a></Button>

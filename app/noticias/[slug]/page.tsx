@@ -10,7 +10,6 @@ type Props = { params: Promise<{ slug: string }> }
 
 const sources = [
   { matches: ['bairro-cabral', 'parque-sarandi', 'morar-perto'], label: 'Prefeitura de Contagem · Entrega e revitalização do Parque Linear Sarandi', href: 'https://portal.contagem.mg.gov.br/portal/noticias/0/3/83424/prefeitura-entrega-parque-sarandi-e-maior-pista-de-skate-no-sabado-213/' },
-  { matches: ['valorizacao'], label: 'BHAZ · Os bairros mais caros para comprar imóvel em Contagem', href: 'https://bhaz.com.br/noticias/contagem/bairros-mais-caros-de-contagem/' },
 ]
 
 export function generateStaticParams() {
@@ -42,10 +41,10 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         </header>
         <div className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16">
-          <div className="rounded-2xl border border-[#e8e7df] bg-white p-6 md:p-10">
-            <figure className="mb-10 overflow-hidden rounded-xl">
-              <div className="relative aspect-[16/8] bg-[#e8e7df]"><Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 768px) 100vw, 800px" className="object-cover" /></div>
-              <figcaption className="mt-2 text-xs text-[#81877f]">{article.imageAlt}</figcaption>
+          <div className="rounded-2xl border border-[#e8e7df] bg-white p-4 sm:p-6 md:p-10">
+            <figure className="mb-8 md:mb-10">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-[#e8e7df] md:aspect-[16/8]"><Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 768px) 100vw, 800px" className="object-cover" /></div>
+              <figcaption className="mt-2 break-words px-1 text-xs leading-relaxed text-[#81877f]">{article.imageAlt}</figcaption>
             </figure>
             {article.sections.map((section) => (
               <section key={section.heading} className="mb-10 last:mb-0">
