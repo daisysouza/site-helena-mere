@@ -1,13 +1,26 @@
 import type { Metadata } from 'next'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { ContactForm } from '@/components/contact-form'
+import { GoogleMapEmbed } from '@/components/google-map-embed'
 import { WhatsappIcon, InstagramIcon } from '@/components/icons'
 import { siteConfig, whatsappLink } from '@/lib/site'
 
+const title = 'Contato'
+const description =
+  'Fale com a Helena Mêre por WhatsApp, telefone, e-mail ou Instagram. Atendimento em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.'
+
 export const metadata: Metadata = {
-  title: 'Contato',
-  description:
-    'Fale com a Helena Mêre por WhatsApp, telefone, e-mail ou Instagram. Atendimento em Contagem, Cabral e Belo Horizonte.',
+  title,
+  description,
+  alternates: {
+    canonical: '/contato',
+  },
+  openGraph: {
+    title,
+    description,
+    url: '/contato',
+    type: 'website',
+  },
 }
 
 export default function ContatoPage() {
@@ -91,15 +104,11 @@ export default function ContatoPage() {
               </div>
             </div>
 
-            <div className="mt-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border">
-              <iframe
-                title="Mapa de atendimento"
-                src="https://www.google.com/maps?q=Contagem,+MG&output=embed"
-                className="size-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+            <GoogleMapEmbed
+              title="Mapa de atendimento"
+              query="Contagem, MG"
+              className="mt-6 aspect-[16/10]"
+            />
           </div>
 
           <div>

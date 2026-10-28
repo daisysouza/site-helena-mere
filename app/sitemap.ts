@@ -1,14 +1,14 @@
 import type { MetadataRoute } from 'next'
 import { properties } from '@/lib/properties'
 import { articles } from '@/lib/articles'
-
-const siteUrl = 'https://site-helena-mere.vercel.app'
+import { siteUrl } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [
     '',
     '/imoveis',
     '/bairro-cabral-contagem',
+    '/noticias',
     '/sobre',
     '/contato',
     '/anuncie-seu-imovel',
@@ -18,10 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}/imoveis/${property.slug}`,
   }))
 
-  const articlePages: MetadataRoute.Sitemap = [
-    { url: `${siteUrl}/noticias` },
-    ...articles.map((article) => ({ url: `${siteUrl}/noticias/${article.slug}` })),
-  ]
+  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${siteUrl}/noticias/${article.slug}`,
+  }))
 
   return [...pages, ...propertyPages, ...articlePages]
 }

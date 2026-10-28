@@ -5,9 +5,28 @@ import { ArrowRight, Clock3, MapPin } from 'lucide-react'
 import { articles } from '@/lib/articles'
 import { ArticlesExplorer } from '@/components/news/articles-explorer'
 
+const title = 'Notícias do Cabral: guias e matérias do bairro'
+const description =
+  'Leia sobre o bairro Cabral, em Contagem: qualidade de vida, Parque Sarandi, mercado imobiliário e opções de imóveis para morar na região.'
+
 export const metadata: Metadata = {
-  title: 'Notícias do Cabral | Guias e matérias do bairro',
-  description: 'Leia sobre o bairro Cabral, em Contagem: qualidade de vida, Parque Sarandi, mercado imobiliário e opções de imóveis.',
+  title,
+  description,
+  alternates: {
+    canonical: '/noticias',
+  },
+  openGraph: {
+    title,
+    description,
+    url: '/noticias',
+    type: 'website',
+    images: [
+      {
+        url: '/images/cabral/cabral-banner.jpg',
+        alt: 'Vista aérea do bairro Cabral, em Contagem',
+      },
+    ],
+  },
 }
 
 export default function NoticiasPage() {
@@ -32,12 +51,18 @@ export default function NoticiasPage() {
 
       <section className="border-b border-[#dfdbd2] bg-[#fbf9f4] py-8 md:py-10">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="mb-5 flex items-end justify-between gap-4"><div><p className="text-[9px] font-bold uppercase tracking-[0.2em] text-primary">Feito pra você</p><h2 className="mt-1 font-serif text-2xl text-[#183a2b]">O bairro, por diferentes olhares</h2></div></div>
+          <div className="mb-5 flex items-end justify-between gap-4"><div><p className="text-[9px] font-bold uppercase tracking-[0.2em] text-primary">Feito para você</p><h2 className="mt-1 font-serif text-2xl text-[#183a2b]">O bairro, por diferentes olhares</h2></div></div>
           <div className="grid gap-5 md:grid-cols-[1.15fr_0.85fr]">
             <Link href={`/noticias/${featured.slug}`} className="group relative min-h-[245px] overflow-hidden rounded-sm bg-[#26392d] text-white">
               <Image src={featured.image} alt={featured.imageAlt} fill sizes="(max-width: 768px) 100vw, 60vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b1710]/90 via-[#0b1710]/25 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6"><p className="text-[9px] font-bold uppercase tracking-[0.16em] text-accent">Em destaque · {featured.category}</p><h3 className="mt-2 max-w-xl font-serif text-2xl leading-tight md:text-3xl">{featured.title}</h3><span className="mt-3 inline-flex items-center gap-1 text-[10px] font-semibold">Ler matéria <ArrowRight className="size-3" /></span></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#07140d]/95 via-[#07140d]/45 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+                <div className="max-w-[680px] rounded-md bg-[#07140d]/30 p-3 shadow-[0_18px_40px_rgba(7,20,13,0.35)] ring-1 ring-white/10 backdrop-blur-[2px]">
+                  <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-accent">Em destaque · {featured.category}</p>
+                  <h3 className="mt-2 max-w-xl font-serif text-2xl leading-[1.05] tracking-[-0.03em] text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.55)] md:text-[2.4rem]">{featured.title}</h3>
+                  <span className="mt-3 inline-flex items-center gap-1 text-[10px] font-semibold text-white/90">Ler matéria <ArrowRight className="size-3" /></span>
+                </div>
+              </div>
             </Link>
             <div className="flex flex-col justify-between border-l-2 border-primary py-1 pl-5">
               <div><p className="text-[9px] font-bold uppercase tracking-[0.18em] text-primary">Olhar da cidade</p><Link href={`/noticias/${comparison.slug}`} className="mt-2 block font-serif text-2xl leading-tight text-[#183a2b] hover:text-primary">Conhecer o entorno também faz parte da escolha.</Link><p className="mt-3 text-xs leading-relaxed text-[#70776f]">O Cabral, em Contagem, faz parte da região Ressaca. Aqui reunimos informações sobre o bairro e orientações para quem pensa em morar na região.</p></div>

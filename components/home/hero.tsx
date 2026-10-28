@@ -25,10 +25,11 @@ export function Hero() {
             Imóveis em Contagem (especialmente bairro Cabral) e Belo Horizonte
           </span>
           <h1 className="max-w-3xl text-balance font-serif text-4xl font-semibold leading-tight text-background delay-100 animate-fade-in-up md:text-5xl lg:text-6xl">
-            O lugar certo para viver começa com a escolha certa.
+            Apartamentos à venda no Cabral, em Contagem
           </h1>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-background/85 delay-200 animate-fade-in-up">
-            Transformando vidas através de negócios imobiliários. Vamos juntos nessa jornada?
+            O lugar certo para viver começa com a escolha certa. Transformando vidas
+            através de negócios imobiliários. Vamos juntos nessa jornada?
           </p>
 
           <div className="mt-8 flex flex-col gap-3 delay-300 animate-fade-in-up sm:flex-row">

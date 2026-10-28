@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { PropertyCard } from '@/components/property-card'
+import { PropertiesGrid } from '@/components/properties-grid'
 import {
   cities,
   neighborhoods,
@@ -194,11 +194,7 @@ export function PropertiesBrowser() {
           </div>
 
           {filtered.length > 0 ? (
-            <div className="mt-8 grid gap-6 transition-opacity duration-200 sm:grid-cols-2 xl:grid-cols-3">
-              {filtered.map((property) => (
-                <PropertyCard key={property.slug} property={property} />
-              ))}
-            </div>
+            <PropertiesGrid properties={filtered} />
           ) : (
             <div className="mt-12 flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card py-20 text-center">
               <SearchX className="size-12 text-muted-foreground" />

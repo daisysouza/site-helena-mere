@@ -6,6 +6,7 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { WhatsappFloat } from '@/components/whatsapp-float'
+import { siteConfig } from '@/lib/site'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -21,12 +22,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: 'Helena Mêre Corretora | Imóveis em Contagem e Belo Horizonte',
     template: '%s | Helena Mêre Corretora',
   },
   description:
-    'Encontre o lugar certo para viver com a Helena Mêre. Atendimento e personalizado para venda e compra de imóveis em Contagem, especialmente bairro Cabral e Belo Horizonte.',
+    'Encontre o lugar certo para viver com a Helena Mêre. Atendimento personalizado para venda e compra de imóveis em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.',
   keywords: [
     'imóveis',
     'corretora',
@@ -37,11 +39,14 @@ export const metadata: Metadata = {
     'apartamentos',
     'Helena Mêre',
   ],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Helena Mêre Corretora | Imóveis Selecionados em MG',
     description:
-      'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte 🌍🔑',
-    url: 'https://site-helena-mere.vercel.app',
+      'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte.',
+    url: '/',
     siteName: 'Helena Mêre Corretora',
     locale: 'pt_BR',
     type: 'website',
@@ -58,7 +63,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Helena Mêre Corretora | Imóveis Selecionados em MG',
     description:
-      'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte 🌍🔑',
+      'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte.',
     images: ['/images/helena-portrait.png'],
   },
 }

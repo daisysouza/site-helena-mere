@@ -12,6 +12,7 @@ import { Separator } from '@/components/ui/separator'
 import { PropertyGallery } from '@/components/property-gallery'
 import { PropertyCard } from '@/components/property-card'
 import { PropertyActions } from '@/components/property-actions'
+import { GoogleMapEmbed } from '@/components/google-map-embed'
 import { WhatsappIcon } from '@/components/icons'
 import { formatPrice, getProperty, getPropertySpecs, getSimilar, properties } from '@/lib/properties'
 import { propertyWhatsAppLink } from '@/lib/whatsapp'
@@ -29,9 +30,26 @@ export async function generateMetadata({
   const { slug } = await params
   const property = getProperty(slug)
   if (!property) return { title: 'Imóvel não encontrado' }
+
+  const statusLabel = property.status === 'Venda' ? 'à venda' : 'para alugar'
+  const description = `${property.title} — ${property.type} ${statusLabel} em ${property.neighborhood}, ${property.city}, com ${property.bedrooms} quartos, ${property.area.toLocaleString('pt-BR')} m² e ${formatPrice(property.price)}.`
+  const canonical = `/imoveis/${property.slug}`
+
   return {
     title: property.title,
-    description: property.description,
+    description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: property.title,
+      description,
+      url: canonical,
+      type: 'website',
+      images: property.images[0]
+        ? [{ url: property.images[0], alt: property.title }]
+        : undefined,
+    },
   }
 }
 
@@ -97,17 +115,11 @@ export default async function PropertyPage({
                 <MapPin className="size-4 text-secondary" />
                 {property.neighborhood}, {property.city} - MG
               </p>
-              <div className="mt-4 aspect-[4/3] w-full min-w-0 overflow-hidden rounded-2xl border border-border sm:aspect-[16/9]">
-                <iframe
-                  title={`Mapa de ${property.neighborhood}`}
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(
-                    property.mapQuery ?? `${property.neighborhood}, ${property.city}, MG`,
-                  )}&output=embed`}
-                  className="size-full"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
+              <GoogleMapEmbed
+                title={`Mapa de ${property.neighborhood}`}
+                query={property.mapQuery ?? `${property.neighborhood}, ${property.city}, MG`}
+                className="mt-4 aspect-[4/3] sm:aspect-[16/9]"
+              />
             </div>
           </div>
 

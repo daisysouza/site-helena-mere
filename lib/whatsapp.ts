@@ -1,10 +1,10 @@
 import type { Property } from '@/lib/properties'
 import { formatPrice } from '@/lib/properties'
-import { whatsappLink } from '@/lib/site'
+import { siteUrl, whatsappLink } from '@/lib/site'
 
 function getBaseUrl(): string {
   if (typeof window !== 'undefined') return window.location.origin
-  return 'https://site-helena-mere.vercel.app'
+  return siteUrl
 }
 
 export function buildPropertyMessage(property: Property): string {

@@ -10,10 +10,28 @@ import { WhatsappIcon } from '@/components/icons'
 import { siteConfig, whatsappLink } from '@/lib/site'
 import { articles } from '@/lib/articles'
 
+const title = 'Bairro Cabral: conheça, more e invista em Contagem'
+const description =
+  'Um guia completo do bairro Cabral, em Contagem: vantagens de morar, referências da região e motivos para comprar um imóvel.'
+
 export const metadata: Metadata = {
-  title: 'Bairro Cabral: conheça, more e invista em Contagem',
-  description:
-    'Um guia completo do bairro Cabral, em Contagem: vantagens de morar, referências da região e motivos para comprar um imóvel.',
+  title,
+  description,
+  alternates: {
+    canonical: '/bairro-cabral-contagem',
+  },
+  openGraph: {
+    title,
+    description,
+    url: '/bairro-cabral-contagem',
+    type: 'website',
+    images: [
+      {
+        url: '/images/cabral/casa-sabia.jpg',
+        alt: 'Casa contemporânea com jardim, ipê-amarelo e sabiá-laranjeira',
+      },
+    ],
+  },
 }
 
 const reasons = [

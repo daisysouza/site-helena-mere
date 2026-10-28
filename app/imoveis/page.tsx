@@ -1,11 +1,25 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { PropertiesBrowser } from '@/components/properties-browser'
+import { PropertiesGrid } from '@/components/properties-grid'
+import { properties } from '@/lib/properties'
+
+const title = 'Imóveis à venda no Cabral e em Contagem'
+const description =
+  'Explore nossa seleção de casas, apartamentos e coberturas à venda em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.'
 
 export const metadata: Metadata = {
-  title: 'Imóveis à venda',
-  description:
-    'Explore nossa seleção de casas, apartamentos e coberturas em Contagem, Cabral e Belo Horizonte.',
+  title,
+  description,
+  alternates: {
+    canonical: '/imoveis',
+  },
+  openGraph: {
+    title,
+    description,
+    url: '/imoveis',
+    type: 'website',
+  },
 }
 
 export default function ImoveisPage() {
@@ -26,7 +40,13 @@ export default function ImoveisPage() {
         </div>
       </section>
 
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <div className="mx-auto max-w-7xl px-4 py-12 md:px-6">
+            <PropertiesGrid properties={properties} />
+          </div>
+        }
+      >
         <PropertiesBrowser />
       </Suspense>
     </>

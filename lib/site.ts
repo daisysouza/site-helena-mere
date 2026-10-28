@@ -1,7 +1,9 @@
 export const siteConfig = {
   name: 'Helena Mêre',
   role: 'Corretora de Imóveis',
-  creci: 'CRECI-MG 00000',
+  creci: 'CRECI-MG 52631',
+  // Domínio oficial e canônico do site
+  url: 'https://www.imoveishelenamere.com.br',
   // Número no formato internacional, somente dígitos
   whatsappNumber: '5531988324257',
   whatsappDisplay: '(31) 98832-4257',
@@ -11,6 +13,8 @@ export const siteConfig = {
   address: 'Av. João César de Oliveira, Eldorado, Contagem - MG',
   regions: ['Contagem', 'Cabral', 'Belo Horizonte'],
 }
+
+export const siteUrl = siteConfig.url
 
 export function whatsappLink(message?: string) {
   const base = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}`

@@ -3,10 +3,28 @@ import Image from 'next/image'
 import { Award, Heart, Target } from 'lucide-react'
 import { CtaSection } from '@/components/cta-section'
 
+const title = 'Sobre Helena Mêre'
+const description =
+  'Conheça a história da Helena Mêre, corretora de imóveis com atendimento personalizado em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.'
+
 export const metadata: Metadata = {
-  title: 'Sobre Helena Mêre',
-  description:
-    'Conheça a história da Helena Mêre, corretora de imóveis com atendimento personalizado em Contagem, Cabral e Belo Horizonte.',
+  title,
+  description,
+  alternates: {
+    canonical: '/sobre',
+  },
+  openGraph: {
+    title,
+    description,
+    url: '/sobre',
+    type: 'profile',
+    images: [
+      {
+        url: '/images/helena-portrait.png',
+        alt: 'Helena Mêre, corretora de imóveis',
+      },
+    ],
+  },
 }
 
 const values = [

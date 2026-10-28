@@ -20,7 +20,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const article = articles.find((item) => item.slug === slug)
   if (!article) return {}
-  return { title: article.title, description: article.description, keywords: [article.keyword] }
+
+  const canonical = `/noticias/${article.slug}`
+
+  return {
+    title: article.title,
+    description: article.description,
+    keywords: [article.keyword],
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      url: canonical,
+      type: 'article',
+      images: [
+        {
+          url: article.image,
+          alt: article.imageAlt,
+        },
+      ],
+    },
+  }
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -56,15 +78,10 @@ export default async function ArticlePage({ params }: Props) {
               <section className="mt-10 border-t border-[#eeeee8] pt-8">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Casa com vida</p>
                 <h2 className="mt-2 font-serif text-2xl font-semibold text-[#26392d]">Um cantinho para ver a natureza de perto.</h2>
-                <p className="mt-3 max-w-2xl leading-relaxed text-[#59645d]">Uma varanda ou área externa pode ganhar novos sentidos com plantas, flores e momentos de observação. Estas imagens de referência trazem o sabiá-laranjeira e o ipê-amarelo que aparecem na identidade visual da Helena Mêre; não são registros do bairro.</p>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <p className="mt-3 max-w-2xl leading-relaxed text-[#59645d]">Uma varanda ou área externa pode ganhar novos sentidos com plantas, flores e momentos de observação.</p>
+                <div className="mt-6 grid gap-4">
                   <figure className="overflow-hidden rounded-xl bg-[#f4f1e9]">
                     <div className="relative aspect-[4/3]"><Image src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Sabi%C3%A1-laranjeira_%2849961102327%29.jpg/1280px-Sabi%C3%A1-laranjeira_%2849961102327%29.jpg" alt="Sabiá-laranjeira pousado em uma árvore" fill sizes="(max-width: 640px) 100vw, 400px" className="object-cover" /></div>
-                    <figcaption className="p-3 text-[10px] leading-relaxed text-[#69736b]">Sabiá-laranjeira · Foto: Alexandre Marino · <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sabi%C3%A1-laranjeira_(49961102327).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> · <a className="underline" href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a></figcaption>
-                  </figure>
-                  <figure className="overflow-hidden rounded-xl bg-[#f4f1e9]">
-                    <div className="relative aspect-[4/3]"><Image src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Ip%C3%AA_%28Avar%C3%A9%29_REFON.jpg/500px-Ip%C3%AA_%28Avar%C3%A9%29_REFON.jpg" alt="Ipê-amarelo florido em Avaré, São Paulo" fill sizes="(max-width: 640px) 100vw, 400px" className="object-cover" /></div>
-                    <figcaption className="p-3 text-[10px] leading-relaxed text-[#69736b]">Ipê-amarelo em Avaré · Foto: José Reynaldo da Fonseca · <a className="underline" href="https://commons.wikimedia.org/wiki/File:Ip%C3%AA_(Avar%C3%A9)_REFON.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> · <a className="underline" href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener noreferrer">CC BY 2.5</a></figcaption>
                   </figure>
                 </div>
               </section>

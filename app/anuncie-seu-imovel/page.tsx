@@ -2,10 +2,22 @@ import type { Metadata } from 'next'
 import { BadgeCheck, Camera, Megaphone, Users } from 'lucide-react'
 import { ListPropertyForm } from '@/components/list-property-form'
 
+const title = 'Anuncie seu imóvel'
+const description =
+  'Anuncie seu imóvel com a Helena Mêre e conte com divulgação qualificada e atendimento dedicado para vender mais rápido.'
+
 export const metadata: Metadata = {
-  title: 'Anuncie seu imóvel',
-  description:
-    'Anuncie seu imóvel com a Helena Mêre e conte com divulgação qualificada e atendimento dedicado para vender mais rápido.',
+  title,
+  description,
+  alternates: {
+    canonical: '/anuncie-seu-imovel',
+  },
+  openGraph: {
+    title,
+    description,
+    url: '/anuncie-seu-imovel',
+    type: 'website',
+  },
 }
 
 const benefits = [

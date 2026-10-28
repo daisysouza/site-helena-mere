@@ -58,7 +58,7 @@ function buildMessage(
 }
 
 describe('buildPropertyMessage', () => {
-  const baseUrl = 'https://site-helena-mere.vercel.app'
+  const baseUrl = 'https://www.imoveishelenamere.com.br'
 
   it('contains property title', () => {
     const msg = buildMessage(mockProperty, 'interest', baseUrl)
@@ -109,7 +109,7 @@ describe('buildPropertyMessage', () => {
 
 describe('propertyWhatsAppLink', () => {
   it('generates a valid WhatsApp URL with encoded text', () => {
-    const baseUrl = 'https://site-helena-mere.vercel.app'
+    const baseUrl = 'https://www.imoveishelenamere.com.br'
     const msg = buildMessage(mockProperty, 'interest', baseUrl)
     const phone = '5531988324257'
     const expected = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg)}`
