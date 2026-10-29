@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ThemeProvider } from 'next-themes'
 import type { Metadata, Viewport } from 'next'
@@ -20,6 +21,8 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
 })
+
+const GA_MEASUREMENT_ID = 'G-X3LG15NJX3'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -92,6 +95,7 @@ export default function RootLayout({
           <WhatsappFloat />
           {process.env.NODE_ENV === 'production' && (
             <>
+              <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
               <Analytics />
               <SpeedInsights />
             </>
