@@ -45,17 +45,20 @@ export default function BairroCabralPage() {
 
   return (
     <>
-      <section className="relative isolate flex min-h-[540px] items-center overflow-hidden bg-primary text-white md:min-h-[610px]">
-        <Image
-          src="/images/cabral/casa-sabia.jpg"
-          alt="Casa contemporânea com jardim, ipê-amarelo e sabiá-laranjeira"
-          fill
-          priority
-          sizes="100vw"
-          className="-z-20 object-cover object-center"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#064b2a]/95 via-[#064b2a]/75 to-[#064b2a]/20" />
-        <div className="mx-auto w-full max-w-7xl px-4 py-20 md:px-6 md:py-24">
+      <section className="relative isolate overflow-hidden bg-primary text-white md:flex md:min-h-[610px] md:items-center">
+        <div className="relative aspect-[1376/768] w-full md:absolute md:inset-0 md:aspect-auto md:-z-20">
+          <Image
+            src="/images/cabral/casa-sabia.jpg"
+            alt="Casa contemporânea com jardim, ipê-amarelo e sabiá-laranjeira"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#064b2a]/50 via-transparent to-transparent md:hidden" />
+        </div>
+        <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-[#064b2a]/95 via-[#064b2a]/75 to-[#064b2a]/20 md:block" />
+        <div className="mx-auto w-full max-w-7xl px-4 py-14 md:px-6 md:py-24">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
               <MapPin className="size-3.5" /> Guia do bairro

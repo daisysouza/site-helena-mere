@@ -1,4 +1,4 @@
-# Helena Mêre — Plataforma Imobiliária
+# Helena Mere — Plataforma Imobiliária
 
 Plataforma desenvolvida para apresentar imóveis à venda, fortalecer a presença digital da marca e facilitar o contato com clientes pelo WhatsApp.
 

@@ -4,7 +4,7 @@ import { ListPropertyForm } from '@/components/list-property-form'
 
 const title = 'Anuncie seu imóvel'
 const description =
-  'Anuncie seu imóvel com a Helena Mêre e conte com divulgação qualificada e atendimento dedicado para vender mais rápido.'
+  'Anuncie seu imóvel com a Helena Mere e conte com divulgação qualificada e atendimento dedicado para vender mais rápido.'
 
 export const metadata: Metadata = {
   title,

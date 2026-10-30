@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'Helena Mêre',
+  name: 'Helena Mere',
   role: 'Corretora de Imóveis',
   creci: 'CRECI-MG 52631',
   // Domínio oficial e canônico do site

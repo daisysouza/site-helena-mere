@@ -3,9 +3,9 @@ import Image from 'next/image'
 import { Award, Heart, Target } from 'lucide-react'
 import { CtaSection } from '@/components/cta-section'
 
-const title = 'Sobre Helena Mêre'
+const title = 'Sobre Helena Mere'
 const description =
-  'Conheça a história da Helena Mêre, corretora de imóveis com atendimento personalizado em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.'
+  'Conheça a história da Helena Mere, corretora de imóveis com atendimento personalizado em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.'
 
 export const metadata: Metadata = {
   title,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/images/helena-portrait.png',
-        alt: 'Helena Mêre, corretora de imóveis',
+        alt: 'Helena Mere, corretora de imóveis',
       },
     ],
   },
@@ -74,7 +74,7 @@ export default function SobrePage() {
               Sobre mim
             </span>
             <h1 className="mt-3 text-balance font-serif text-3xl font-semibold leading-tight md:text-4xl">
-              Prazer, sou a Helena Mêre
+              Prazer, sou a Helena Mere
             </h1>
 
             <p className="mt-6 leading-relaxed text-muted-foreground">
@@ -105,7 +105,7 @@ export default function SobrePage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
               <Image
                 src="/images/helena-portrait.png"
-                alt="Helena Mêre, corretora de imóveis"
+                alt="Helena Mere, corretora de imóveis"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"

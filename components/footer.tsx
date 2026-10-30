@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col items-center md:items-start lg:col-span-1">
           <Image
             src="/images/logohelenamere.png"
-            alt="Helena Mêre Corretora"
+            alt="Helena Mere Corretora"
             width={180}
             height={54}
             className="h-20 w-auto md:h-24"
@@ -83,7 +83,7 @@ export function Footer() {
 
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-4 py-6 text-center text-xs text-muted-foreground md:px-6">
-          © {new Date().getFullYear()} Helena Mêre Corretora. Todos os direitos
+          © {new Date().getFullYear()} Helena Mere Corretora. Todos os direitos
           reservados.
         </div>
       </div>

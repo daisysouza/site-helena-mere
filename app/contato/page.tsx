@@ -7,7 +7,7 @@ import { siteConfig, whatsappLink } from '@/lib/site'
 
 const title = 'Contato'
 const description =
-  'Fale com a Helena Mêre por WhatsApp, telefone, e-mail ou Instagram. Atendimento em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.'
+  'Fale com a Helena Mere por WhatsApp, telefone, e-mail ou Instagram. Atendimento em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.'
 
 export const metadata: Metadata = {
   title,

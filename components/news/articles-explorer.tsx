@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Clock3, Search } from 'lucide-react'
+import { ArrowRight, Search } from 'lucide-react'
 import type { Article } from '@/lib/articles'
 
 const filters = ['Todos', 'Vida no bairro', 'Lazer e natureza', 'Mercado imobiliário', 'Imóveis']
@@ -44,7 +44,7 @@ export function ArticlesExplorer({ articles }: { articles: Article[] }) {
               <Link href={`/noticias/${article.slug}`} className="block">
                 <div className="relative aspect-[1.48] overflow-hidden bg-[#e8e7df]"><Image src={article.image} alt={article.imageAlt} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" /><span className="absolute bottom-3 left-3 rounded-sm bg-primary/95 px-2.5 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">{article.category}</span></div>
                 <div className="p-5">
-                  <div className="flex items-center justify-between text-[10px] text-[#8a908a]"><span className="uppercase tracking-[0.13em]">Cabral, Contagem</span><span className="inline-flex items-center gap-1"><Clock3 className="size-3" /> {article.minutes} min</span></div>
+                  <div className="text-[10px] text-[#8a908a]"><span className="uppercase tracking-[0.13em]">Cabral, Contagem</span></div>
                   <h3 className="mt-3 line-clamp-3 font-serif text-xl leading-snug text-[#183a2b] group-hover:text-primary">{article.title}</h3>
                   <p className="mt-3 line-clamp-3 text-xs leading-relaxed text-[#70776f]">{article.description}</p>
                   <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-primary">Ler matéria <ArrowRight className="size-3" /></span>

@@ -6,9 +6,9 @@ import { Benefits } from '@/components/home/benefits'
 import { Testimonials } from '@/components/home/testimonials'
 import { CtaSection } from '@/components/cta-section'
 
-const title = 'Imóveis à venda no Cabral, Contagem | Helena Mêre'
+const title = 'Imóveis à venda no Cabral, Contagem | Helena Mere'
 const description =
-  'Conheça apartamentos e imóveis à venda no bairro Cabral, em Contagem (MG), com a curadoria e o atendimento personalizado da corretora Helena Mêre.'
+  'Conheça apartamentos e imóveis à venda no bairro Cabral, em Contagem (MG), com a curadoria e o atendimento personalizado da corretora Helena Mere.'
 
 export const metadata: Metadata = {
   title: { absolute: title },

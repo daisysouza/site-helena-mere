@@ -2,14 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowRight, Clock3 } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { articles } from '@/lib/articles'
 import { Button } from '@/components/ui/button'
 
 type Props = { params: Promise<{ slug: string }> }
 
-const sources = [
+const sources: { matches: string[]; label: string; href?: string }[] = [
   { matches: ['bairro-cabral', 'parque-sarandi', 'morar-perto'], label: 'Prefeitura de Contagem · Entrega e revitalização do Parque Linear Sarandi', href: 'https://portal.contagem.mg.gov.br/portal/noticias/0/3/83424/prefeitura-entrega-parque-sarandi-e-maior-pista-de-skate-no-sabado-213/' },
+  { matches: ['bairro-cabral'], label: 'Prefeitura de Contagem · Informações sobre infraestrutura e serviços urbanos' },
 ]
 
 export function generateStaticParams() {
@@ -59,7 +60,6 @@ export default async function ArticlePage({ params }: Props) {
             <p className="mt-10 text-xs font-bold uppercase tracking-[0.18em] text-accent">{article.category}</p>
             <h1 className="mt-4 font-serif text-4xl font-medium leading-tight md:text-5xl">{article.title}</h1>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-white/70">{article.description}</p>
-            <p className="mt-6 inline-flex items-center gap-2 text-sm text-white/60"><Clock3 className="size-4" /> {article.minutes} min de leitura</p>
           </div>
         </header>
         <div className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16">
@@ -68,12 +68,24 @@ export default async function ArticlePage({ params }: Props) {
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-[#e8e7df] md:aspect-[16/8]"><Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 768px) 100vw, 800px" className="object-cover" /></div>
               <figcaption className="mt-2 break-words px-1 text-xs leading-relaxed text-[#81877f]">{article.imageAlt}</figcaption>
             </figure>
+            {article.intro && (
+              <div className="mb-10">
+                {article.intro.map((paragraph, index) => (
+                  <p key={paragraph} className={index === 0 ? 'text-lg leading-[1.85] text-[#3d4a42]' : 'mt-4 text-[17px] leading-[1.85] text-[#59645d]'}>{paragraph}</p>
+                ))}
+              </div>
+            )}
             {article.sections.map((section) => (
               <section key={section.heading} className="mb-10 last:mb-0">
                 <h2 className="font-serif text-2xl font-semibold text-[#26392d] md:text-3xl">{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => <p key={paragraph} className="mt-4 text-[17px] leading-[1.85] text-[#59645d]">{paragraph}</p>)}
               </section>
             ))}
+            {article.closing && (
+              <div className="mt-10 rounded-xl bg-[#f4f1e9] p-6 md:p-8">
+                {article.closing.map((paragraph) => <p key={paragraph} className="text-[17px] font-medium leading-[1.85] text-[#26392d]">{paragraph}</p>)}
+              </div>
+            )}
             {article.slug === 'apartamento-area-privativa-cabral-contagem' && (
               <section className="mt-10 border-t border-[#eeeee8] pt-8">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Casa com vida</p>
@@ -90,7 +102,15 @@ export default async function ArticlePage({ params }: Props) {
               <div className="mt-10 border-t border-[#eeeee8] pt-6">
                 <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Fontes e informações</h2>
                 <ul className="mt-3 space-y-2">
-                  {sources.filter(({ matches }) => matches.some((match) => article.slug.includes(match))).map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline underline-offset-4">{source.label}</a></li>)}
+                  {sources.filter(({ matches }) => matches.some((match) => article.slug.includes(match))).map((source) => (
+                    <li key={source.label}>
+                      {source.href ? (
+                        <a href={source.href} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline underline-offset-4">{source.label}</a>
+                      ) : (
+                        <span className="text-sm text-[#59645d]">{source.label}</span>
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}

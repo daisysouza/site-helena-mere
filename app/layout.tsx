@@ -27,11 +27,11 @@ const GA_MEASUREMENT_ID = 'G-X3LG15NJX3'
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Helena Mêre Corretora | Imóveis em Contagem e Belo Horizonte',
-    template: '%s | Helena Mêre Corretora',
+    default: 'Helena Mere Corretora | Imóveis em Contagem e Belo Horizonte',
+    template: '%s | Helena Mere Corretora',
   },
   description:
-    'Encontre o lugar certo para viver com a Helena Mêre. Atendimento personalizado para venda e compra de imóveis em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.',
+    'Encontre o lugar certo para viver com a Helena Mere. Atendimento personalizado para venda e compra de imóveis em Contagem, especialmente no bairro Cabral, e em Belo Horizonte.',
   keywords: [
     'imóveis',
     'corretora',
@@ -40,17 +40,17 @@ export const metadata: Metadata = {
     'Cabral',
     'casas',
     'apartamentos',
-    'Helena Mêre',
+    'Helena Mere',
   ],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Helena Mêre Corretora | Imóveis Selecionados em MG',
+    title: 'Helena Mere Corretora | Imóveis Selecionados em MG',
     description:
       'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte.',
     url: '/',
-    siteName: 'Helena Mêre Corretora',
+    siteName: 'Helena Mere Corretora',
     locale: 'pt_BR',
     type: 'website',
     images: [
@@ -58,13 +58,13 @@ export const metadata: Metadata = {
         url: '/images/helena-portrait.png',
         width: 1200,
         height: 630,
-        alt: 'Helena Mêre Corretora',
+        alt: 'Helena Mere Corretora',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Helena Mêre Corretora | Imóveis Selecionados em MG',
+    title: 'Helena Mere Corretora | Imóveis Selecionados em MG',
     description:
       'Soluções completas em compra e venda de imóveis na região metropolitana de Belo Horizonte.',
     images: ['/images/helena-portrait.png'],

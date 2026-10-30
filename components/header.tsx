@@ -39,14 +39,14 @@ export function Header() {
         <Link href="/" className="flex items-center gap-3 leading-none">
           <Image
             src="/images/logohelenamere.png"
-            alt="Helena Mêre Corretora"
+            alt="Helena Mere Corretora"
             width={120}
             height={36}
             className="h-14 w-auto md:h-14"
           />
           <div className="flex flex-col">
             <span className="font-serif text-xl font-semibold tracking-tight text-foreground md:text-xl">
-              Helena Mêre
+              Helena Mere
             </span>
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary md:text-[11px]">
               Corretora de Imóveis

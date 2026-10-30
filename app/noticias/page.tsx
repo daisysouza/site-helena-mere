@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Clock3, MapPin } from 'lucide-react'
+import { ArrowRight, MapPin } from 'lucide-react'
 import { articles } from '@/lib/articles'
 import { ArticlesExplorer } from '@/components/news/articles-explorer'
 
@@ -66,7 +66,7 @@ export default function NoticiasPage() {
             </Link>
             <div className="flex flex-col justify-between border-l-2 border-primary py-1 pl-5">
               <div><p className="text-[9px] font-bold uppercase tracking-[0.18em] text-primary">Olhar da cidade</p><Link href={`/noticias/${comparison.slug}`} className="mt-2 block font-serif text-2xl leading-tight text-[#183a2b] hover:text-primary">Conhecer o entorno também faz parte da escolha.</Link><p className="mt-3 text-xs leading-relaxed text-[#70776f]">O Cabral, em Contagem, faz parte da região Ressaca. Aqui reunimos informações sobre o bairro e orientações para quem pensa em morar na região.</p></div>
-              <div className="mt-5 border-t border-[#ded9d1] pt-4"><p className="text-[9px] font-bold uppercase tracking-[0.17em] text-primary">Mercado imobiliário</p><Link href={`/noticias/${market.slug}`} className="mt-1 block font-serif text-lg leading-snug text-[#183a2b] hover:text-primary">{market.title}</Link><span className="mt-2 inline-flex items-center gap-1 text-[10px] text-[#7b8179]"><Clock3 className="size-3" /> {market.minutes} min de leitura</span></div>
+              <div className="mt-5 border-t border-[#ded9d1] pt-4"><p className="text-[9px] font-bold uppercase tracking-[0.17em] text-primary">Mercado imobiliário</p><Link href={`/noticias/${market.slug}`} className="mt-1 block font-serif text-lg leading-snug text-[#183a2b] hover:text-primary">{market.title}</Link></div>
             </div>
           </div>
         </div>
